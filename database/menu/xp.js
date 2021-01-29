@@ -28,8 +28,16 @@ const xp = (prefix, botName, ownerName) => {
 ┷┯ *〈 LEVEL 〉*
    ╽
    ┠≽ *${prefix}level*
+   ┃ *Desc* : Check Your Level
+   ┠──────────────╼
    ┠≽ *${prefix}leveling* <1/0>
+   ┃ *Desc* : Enabling / Disabling Leveling Features
+   ┠──────────────╼
    ┠≽ *${prefix}mining*
+   ┃ *Desc* : Mining XP
+   ┠──────────────╼
+   ┠≽ *${prefix}event* <1/0>
+   ┃ *Desc* : Enabling / Disabling Event Features
    ╿ *${ownerName}*,
    ╰╼≽ *Developer © ${botName}
 --------------------------------
