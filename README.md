@@ -17,17 +17,22 @@
     <a href="https://github.com/NazwaS/termux-whatsapp-bot/stargazers"><img title="Stars" src="https://img.shields.io/github/stars/NazwaS/termux-whatsapp-bot?style=flat-square"></a>
     <a href="https://github.com/NazwaS/termux-whatsapp-bot/network/members"><img title="Forks" src="https://img.shields.io/github/forks/NazwaS/termux-whatsapp-bot?style=flat-square"></a>
     <a href="https://github.com/NazwaS/termux-whatsapp-bot/watchers"><img title="watchers" src="https://img.shields.io/github/watchers/NazwaS/termux-whatsapp-bot?style=flat-square"></a>
-    <a href="#"><img title="maintened" src="https://img.shields.io/badge/maintained%3F-yes-green.svg?style=flat">
-    <a href="#"><img title="repo size" src="https://img.shields.io/github/repo-size/NazwaS/termux-whatsapp-bot?style=flat-square">
+    <a href="#"><img title="maintened" src="https://img.shields.io/badge/maintained%3F-yes-green.svg?style=flat"></a>
+    <a href="#"><img title="repo size" src="https://img.shields.io/github/repo-size/NazwaS/termux-whatsapp-bot?style=flat-square"></a>
 </p>
+</br>
 
-<img src="https://media4.giphy.com/media/qLFKvOpoS1N7ts7xO8/giphy.gif">
+<p align="center">
+    <img src="https://media4.giphy.com/media/qLFKvOpoS1N7ts7xO8/giphy.gif">
+</p>
+<div align="center">
 <details>
+ <summary>🍙 Help me!</summary>
+ 
+ [Saweria](https://saweria.co/nazwas)
 
-<summary>🍙 Help me!</summary>
-
-* [Saweria](https://saweria.co/nazwas)
-* [Trakteer](https://trakteer.id/NazwaS)
+ [Trakteer](https://trakteer.id/NazwaS)
+ 
 </details>
 
 ## Made By
