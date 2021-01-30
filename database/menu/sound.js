@@ -31,8 +31,5 @@ const sound = (prefix, botName, ownerName) => {
    ┃ *Desc* : Google Text To Speach
    ╿ *${ownerName}*,
    ╰╼≽ *Developer © ${botName}`
-◪ *SOUND*
-  │
-  └─ ❏ ${prefix}tts`
 }
 exports.sound = sound
