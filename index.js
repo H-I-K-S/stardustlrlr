@@ -886,9 +886,9 @@ async function starts() {
                                         if (!isRegister) return reply(mess.only.daftarB)
                                         if (isLimit(sender)) return reply(ind.limitend(pusname))
 					if(!isUrl(args[0]) && !args[0].includes('youtu')) return reply(mess.error.Iv)
-					anu = await fetchJson(`https://st4rz.herokuapp.com/api/ytv2?url=${args[0]}`, {method: 'get'})
+					anu = await fetchJson(`https://mhankbarbar.tech/api/ytv?url=${args[0]}&apiKey=${BarBarKey}`, {method: 'get'})
 					if (anu.error) return reply(anu.error)
-					teks = `*❏ Title* : ${anu.title}\n\n*VIDEO SEDANG DIKIRIMKAN, JANGAN SPAM YA SAYANG*`
+					teks = `❏ *Title* : ${anu.title} \n❏ *Size* : ${anu.filesize} \n❏ *Desc* : ${anu.desc} \n\n*VIDEO SEDANG DIKIRIMKAN, JANGAN SPAM YA SAYANG...*`
 					thumb = await getBuffer(anu.thumb)
 					client.sendMessage(from, thumb, image, {quoted: mek, caption: teks})
 					buffer = await getBuffer(anu.result)
@@ -2423,25 +2423,66 @@ async function starts() {
                                         teksnya = aruga.split("|")[1];
                                         if (!isRegister) return reply(mess.only.daftarB)
                                         if (args.length < 1) return reply(`kode bahasanya mana kak?\nContoh: ${prefix}translate en|Hai, aku Nazwa`)
-                                        if (args.length < 2) return reply(`teksnya mana kak?\nContoh: ${prefix}translate en|Hai, aku Nazwa`)
+                                        if (args.length < 2) return reply(`teksnya mana kak?\nContoh: ${prefix}translate en| Hai, aku Nazwa`)
+                                        if (isLimit(sender)) return reply(ind.limitend(pusname))
                                         anu = await fetchJson(`https://arugaz.my.id/api/edu/translate?lang=${lang}&text=${teksnya}`, {method: 'get'})
                                         arteks = `◪ *TRANSLATE* \n  │\n  ├─ ❏ Text : ${teksnya} \n  ├─ ❏ Translate : ${anu.text} \n  └─ ❏ *Pronunciation* : ${anu.pronunciation}`
                                         client.sendMessage(from, arteks, text)
+                                        await limitAdd(sender)
                                         break
                                 case 'tafsirmimpi':
                                         aruga = body.slice(12)
                                         if (!isRegister) return reply(mess.only.daftarB)
                                         if (args.length < 1) return reply(`mimpi apa kak?\nContoh: ${prefix}tafsirmimpi belanja`)
+                                        if (isLimit(sender)) return reply(ind.limitend(pusname))
                                         anu = await fetchJson(`https://arugaz.my.id/api/primbon/tafsirmimpi?mimpi=${aruga}`, {method: 'get'})
                                         reply(anu.result.hasil)
+                                        await limitAdd(sender)
                                         break
                                 case 'tagme':
                                         if (!isRegister) return reply(mess.only.daftarB)
+                                        var nom = mek.participant
                                         const tagme = {
                                                 text: `@${nom.split("@s.whatsapp.net")[0]} Tuh dah ku tag!`,
                                                 contextInfo: { mentionedJid: [nom] }
                                         }
                                         client.sendMessage(from, tagme, text, {quoted: mek})
+                                        break
+                                case 'ip': // masih testing
+                                        ipnya = body.slice(3)
+                                        if (!isRegister) return reply(mess.only.daftarB)
+                                        if (args.length < 1) return reply(`ip nya mana kak? \nContoh: ${prefix}ip 8.8.8.8`)
+                                        if (isLimit(sender)) return reply(ind.limitend(pusname))
+                                        anu = await fetchJson(`https://mnazria.herokuapp.com/api/check?ip=${ipnya}`, {method: 'get'})
+                                        lang = anu.location.languages[0]
+                                        teks = `◪ *IP* \n  │\n  ├─ ❏ IP : ${anu.ip} \n  ├─ ❏ City : ${anu.city} \n  ├─ ❏ Continent Code : ${anu.continent_code} \n  ├─ ❏ Continent Name : ${anu.continent_name} \n  ├─ ❏ Country Code : ${anu.country_code} \n  ├─ ❏ Country Name : ${anu.country_name} \n  ├─ ❏ Latitude : ${anu.latitude} \n  ├─ ❏ Calling Code : ${anu.location.calling_code} \n  ├─ ❏ Capital : ${anu.location.capital} \n  ├─ ❏ Country Flag : ${anu.location.country_flag} \n  ├─ ❏ Country Flag Emoji : ${anu.location.country_flag_emoji} \n  ├─ ❏ Country Flag Emoji Unicode : ${anu.location.country_flag_emoji_unicode} \n  ├─ ❏ Geoname ID : ${anu.location.geoname_id} \n  ├─ ❏ Languages : ${lang.code} , ${lang.name} , ${lang.native} \n  ├─ ❏ Longitude : ${anu.longitude} \n  ├─ ❏ Region Code : ${anu.region_code} \n  ├─ ❏ Region Name : ${anu.region_name} \n  ├─ ❏ Type : ${anu.type} \n  └─ ❏ Zip : ${anu.zip} `
+                                        client.sendMessage(from, teks, text)
+                                        await limitAdd(sender)
+                                        break
+                                case 'happymod':
+                                        toby = body.slice(10)
+                                        if (!isRegister) return reply(mess.only.daftarB)
+                                        if (args.length < 1) return reply(`game yang mau di cari apa kak? \nContoh : ${prefix}happymod pubg`)
+                                        if (isLimit(sender)) return reply(ind.limitend(pusname))
+                                        anu = await fetchJson((`https://tobz-api.herokuapp.com/api/happymod?q=${toby}&apikey=BotWeA`, {method: 'get'})
+                                        hepi = anu.result[0]
+                                        buffer = await getBuffer(hepi.image)
+                                        teks = `◪ *HAPPY MOD* \n  │\n  ├─ ❏ Title : ${hepi.title} \n  ├─ ❏ Size : ${hepi.size} \n  ├─ ❏ Version : ${hepi.version} \n  ├─ ❏ Root : ${hepi.root} \n  ├─ ❏ Purchase : ${hepi.purchase} \n  ├─ ❏ Price : ${hepi.price} \n  ├─ ❏ Link : ${hepi.link} \n  └─ ❏ Download : ${hepi.download} `
+                                        client.sendMessage(from, buffer, image, {quoted: mek, caption: teks})
+                                        await limitAdd(sender)
+                                        break
+                                case 'jadwalTV':
+                                case 'jadwaltv':
+                                case 'jadwalTv':
+                                case 'jadwaltV':
+                                        mb = body.slice(10)
+                                        if (!isRegister) return reply(mess.only.daftarB)
+                                        if (args.length < 1) return reply(`Channel TV nya apa kak? \nContoh: ${prefix}jadwalTV mnctv`)
+                                        if (isLimit(sender)) return reply(ind.limitend(pusname))
+                                        anu = await fetchJson(`https://mhankbarbar.tech/api/jdtv?ch=${mb}&apiKey=${BarBarKey}`, {method: 'get'})
+                                        teks = `◪ *JADWAL TV* \n  │\n  └─ ❏ Channel : ${mb} \n◪ *JADWAL* \n${anu.result} `
+                                        client.sendMessage(from, teks, text)
+                                        await limitAdd(sender)
                                         break
 			        case 'wait':
 					if ((isMedia && !mek.message.videoMessage || isQuotedImage) && args.length == 0) {
