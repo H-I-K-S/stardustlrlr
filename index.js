@@ -547,11 +547,11 @@ async function starts() {
                                         break
                                 case 'downloadermenu':
                                         if (!isRegister) return reply(mess.only.daftarB)
-                                        await costum(from, downloader(prefix, botName, ownerName), text, tescuk, cr)
+                                        await costum(downloader(prefix, botName, ownerName), text, tescuk, cr)
                                         break
                                 case 'educationmenu':
                                         if (!isRegister) return reply(mess.only.daftarB)
-                                        await costum(from, education(prefix, botName, ownerName), text, tescuk, cr)
+                                        await cost(education(prefix, botName, ownerName), text, tescuk, cr)
                                         break
                                 case 'funmenu':
                                         if (!isRegister) return reply(mess.only.daftarB)
