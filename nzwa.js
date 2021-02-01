@@ -59,6 +59,7 @@ const {
     botName,
     ownerName,
     BarBarKey,
+    ownerNumbers
 } = option
 
 // Load Menu File
@@ -389,8 +390,8 @@ async function starts() {
         		const bisakah = ['Bisa','Tidak Bisa']
 		        const kapankah = ['Hari Lagi','Minggu Lagi','Bulan Lagi','Tahun Lagi']
 			const botNumber = client.user.jid
-			const ownerNumber = ["12542123926@s.whatsapp.net"] // replace this with your number
-			const nomorOwner = [ownerNumber]
+			const ownerNumber = [ownerNumbers]
+			const nomorOwner = [ownerNumbers]
 			const isGroup = from.endsWith('@g.us')
 			const totalchat = await client.chats.all()
 			const sender = isGroup ? mek.participant : mek.key.remoteJid
