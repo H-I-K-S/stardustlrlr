@@ -1,5 +1,6 @@
 {
     "botName": "BOT_NAME",
     "ownerName": "OWNER_NAME",
-    "BarBarKey": "YOUR_APIKEY"
+    "BarBarKey": "YOUR_APIKEY",
+    "ownerNumbers": "YOUR_NUMBER"
 }
