@@ -1,3 +1,4 @@
+//starts
 const {
     WAConnection,
     MessageType,
@@ -53,11 +54,12 @@ const _limit = JSON.parse(fs.readFileSync('./database/json/limit.json'))
 const uang = JSON.parse(fs.readFileSync('./database/json/uang.json'))
 const _registered = JSON.parse(fs.readFileSync('./database/json/registered.json'))
 
-/*let {
+const option = JSON.parse(fs.readFileSync('./options/option.json'))
+const {
     botName,
     ownerName,
     BarBarKey,
-} = ('./settings/setting')*/
+} = option
 
 // Load Menu File
 const { help } = require('./database/menu/help')
@@ -408,11 +410,6 @@ async function starts() {
                         const isEventon = isGroup ? event.includes(from) : false
                         const isRegister = checkRegisteredUser(sender)
                         pushname = client.contacts[sender] != undefined ? client.contacts[sender].vname || client.contacts[sender].notify : undefined
-
-                        // Options
-                        const botName = 'BOT_NAME'
-                        const ownerName = 'OWNER_NAME'
-                        const BarBarKey = 'YOUR_APIKEY'
 
 			const isUrl = (url) => {
 			    return url.match(new RegExp(/https?:\/\/(www\.)?[-a-zA-Z0-9@:%._+~#=]{1,256}\.[a-zA-Z0-9()]{1,6}\b([-a-zA-Z0-9()@:%_+.~#?&/=]*)/, 'gi'))
