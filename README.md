@@ -20,7 +20,6 @@
     <a href="#"><img title="maintened" src="https://img.shields.io/badge/maintained%3F-yes-green.svg?style=flat"></a>
     <a href="#"><img title="repo size" src="https://img.shields.io/github/repo-size/NazwaS/termux-whatsapp-bot?style=flat-square"></a>
 </p>
-</br>
 
 <p align="center">
     <img src="https://media4.giphy.com/media/qLFKvOpoS1N7ts7xO8/giphy.gif">
@@ -34,6 +33,7 @@
  [Trakteer](https://trakteer.id/NazwaS)
  
 </details>
+</div>
 
 ## Made By
 
