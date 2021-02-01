@@ -68,6 +68,40 @@
 
 ---
 
+### Editing Options
+
+```bash
+{
+    "botName": "BOT_NAME",
+    "ownerName": "OWNER_NAME",
+    "BarBarKey": "YOUR_APIKEY",
+    "ownerNumbers": "628885xxxxxx@s.whatsapp.net"
+}
+```
+
+- Change ```botName``` with your Bot Name
+Example:
+```bash
+"botName": "Isemori Bot",
+```
+- Change ```ownerName``` with your Name
+Example:
+```bash
+"ownerName": "Nazwa",
+```
+- Change ```BarBarKey``` with your mhankbarbar ApiKey
+Example:
+```bash
+"BarBarKey": "A4wJwkoSak82hj82NWo92",
+```
+- Change ```ownerNumbers``` with your WhatsApp Number ID
+Example:
+```bash
+"ownerNumbers": "12542123926@s.whatsapp.net"
+```
+
+---
+
 ## Install
 Follow The Steps Below!
 
