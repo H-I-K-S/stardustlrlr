@@ -58,10 +58,8 @@
 ---
 
 ## Information
-- Change vcard contacts name on [this section](https://github.com/NazwaS/termux-whatsapp-bot/blob/main/index.js#L78)
-- Change vcard bot name on [this section](https://github.com/NazwaS/termux-whatsapp-bot/blob/main/index.js#L79)
-- Change vcard WhatsApp id on [this section](https://github.com/NazwaS/termux-whatsapp-bot/blob/main/index.js#L35)
-- Change vcard WhatsApp number on [this section](https://github.com/NazwaS/termux-whatsapp-bot/blob/main/index.js#L80)
+- Change vcard contacts on [this section](https://github.com/NazwaS/termux-whatsapp-bot/blob/main/nzwa.js#L90)
+- Change Options on [this section](https://github.com/NazwaS/termux-whatsapp-bot/blob/main/options/option.json)
 - Change owner number id on [this section](https://github.com/NazwaS/termux-whatsapp-bot/blob/main/index.js#L80)
 - Change menu on [this section](https://github.com/NazwaS/termux-whatsapp-bot/blob/main/src/help.js)
 - Change Bot Name, Owner Name, & BarBarKey  on [this section](https://github.com/NazwaS/termux-whatsapp-bot/blob/main/index.js#L422)
@@ -75,6 +73,7 @@
 ## Install
 Follow The Steps Below!
 
+## For Termux
 ```bash
 > termux-setup-storage
 (after that tap on permission)
