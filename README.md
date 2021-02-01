@@ -58,11 +58,9 @@
 ---
 
 ## Information
-- Change vcard contacts on [this section](https://github.com/NazwaS/termux-whatsapp-bot/blob/main/nzwa.js#L90)
+- Change vcard contacts on [this file](https://github.com/NazwaS/termux-whatsapp-bot/blob/main/nzwa.js#L90)
 - Change Options on [this section](https://github.com/NazwaS/termux-whatsapp-bot/blob/main/options/option.json)
-- Change owner number id on [this section](https://github.com/NazwaS/termux-whatsapp-bot/blob/main/index.js#L80)
-- Change menu on [this section](https://github.com/NazwaS/termux-whatsapp-bot/blob/main/src/help.js)
-- Change Bot Name, Owner Name, & BarBarKey  on [this section](https://github.com/NazwaS/termux-whatsapp-bot/blob/main/index.js#L422)
+- Change menu on [this folders](https://github.com/NazwaS/termux-whatsapp-bot/tree/main/database/menu)
 
 ---
 
