@@ -1,8 +1,56 @@
-exports.noregis = () => {
-        return `*「 BELUM REGISTER 」*\n\n*cara register ${prefix}register nama|umur* \n*Contoh: ${prefix}register Nazwa|16*`
+exports.wait = () => {
+        return `⌛ Sedang di Prosess ⌛`
 }
 
-exports.rediregis = () => {
+exports.succsess = () => {
+        return `✔️ Berhasil ✔️`
+}
+
+exports.levelon = () => {
+        return `❬ ✔ ❭ *leveling telah aktif*`
+}
+
+exports.levelnoton = () => {
+        return `❬ X ❭  *disable leveling*`
+}
+
+exports.levelnol = () => {
+        return `*LEVEL KAKAK MASIH* 0 °-°`
+}
+
+exports.stick = () => {
+        return `[❗] Gagal, terjadi kesalahan saat mengkonversi gambar ke sticker ❌`
+}
+
+exports.Iv = () => {
+        return `❌ Link tidak valid ❌`
+}
+
+exports.group = () => {
+        return `[❗] Perintah ini hanya bisa di gunakan dalam group! ❌`
+}
+
+exports.ownerG = () => {
+        return `[❗] Perintah ini hanya bisa di gunakan oleh owner group! ❌`
+}
+
+exports.ownerB = () => {
+        return `[❗] Perintah ini hanya bisa di gunakan oleh owner bot! ❌`
+}
+
+exports.admin = () => {
+        return `[❗] Perintah ini hanya bisa di gunakan oleh admin group! ❌`
+}
+
+exports.Badmin = () => {
+        return `[❗] Perintah ini hanya bisa di gunakan ketika bot menjadi admin! ❌`
+}
+
+exports.daftarB = (prefix) => {
+        return `──「 BELUM REGISTER 」──\nHalo kak !\nKamu belum Register nih, register dulu yuk... \n\nCommand : ${prefix}register nama|umur\nContoh : ${prefix}register Nazwa|16`
+}
+
+exports.daftarD = () => {
         return `*「 SUDAH REGISTER 」*\n\n*kamu sudah register di database bot*`
 }
 
