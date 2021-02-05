@@ -2,6 +2,10 @@ exports.wait = () => {
         return `⌛ Being Processed ⌛`
 }
 
+exports.timeEnd = () => {
+        return `Time has run out`
+}
+
 exports.succsess = () => {
         return `✔️ Succsess ✔️`
 }
