@@ -2470,6 +2470,13 @@ async function starts() {
                                         client.sendMessage(from, teks, text)
                                         await limitAdd(sender)
                                         break
+                                case 'say':
+                                        teks = body.slice(5)
+                                        if (!isRegister) return reply(mess.only.daftarB)
+                                        if (args.length < 1) return reply('teksnya mana kak?')
+                                        saying = teks
+                                        client.sendMessage(from, saying, text)
+                                        break
 			        case 'wait':
 					if ((isMedia && !mek.message.videoMessage || isQuotedImage) && args.length == 0) {
                                         if (!isRegister) return reply(mess.only.daftarB)
