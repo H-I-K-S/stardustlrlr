@@ -75,7 +75,8 @@
     "botName": "BOT_NAME",
     "ownerName": "OWNER_NAME",
     "BarBarKey": "YOUR_APIKEY",
-    "ownerNumbers": "628885xxxxxx@s.whatsapp.net"
+    "ownerNumbers": "628885xxxxxx@s.whatsapp.net",
+    "languages": "ind"
 }
 ```
 
@@ -99,6 +100,8 @@ Example:
 ```bash
 "ownerNumbers": "12542123926@s.whatsapp.net"
 ```
+- Change ```languages``` with your language ID
+(Comming soon)
 
 ---
 
