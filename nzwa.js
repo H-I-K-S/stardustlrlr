@@ -55,8 +55,8 @@ const _registered = JSON.parse(fs.readFileSync('./database/json/registered.json'
 
 // Load options file
 const option = JSON.parse(fs.readFileSync('./options/option.json'))
-const { ind } = require('./language')
-//const { eng } = require('./language')
+const { ind } = require('./options/language')
+//const { eng } = require('./options/language')
 const {
     botName,
     ownerName,
