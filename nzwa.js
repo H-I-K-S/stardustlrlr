@@ -23,7 +23,6 @@ const { virtex } = require('./src/virtex')
 const { wait, simih, getBuffer, h2k, generateMessageID, getGroupAdmins, getRandom, start, info, success, close } = require('./lib/functions')
 const { fetchJson } = require('./lib/fetcher')
 const { recognize } = require('./lib/ocr')
-const { ind } = require('./language')
 
 // Load Npm Package
 const fs = require('fs')
@@ -54,12 +53,16 @@ const _limit = JSON.parse(fs.readFileSync('./database/json/limit.json'))
 const uang = JSON.parse(fs.readFileSync('./database/json/uang.json'))
 const _registered = JSON.parse(fs.readFileSync('./database/json/registered.json'))
 
+// Load options file
 const option = JSON.parse(fs.readFileSync('./options/option.json'))
+const { ind } = require('./language')
+//const { eng } = require('./language')
 const {
     botName,
     ownerName,
     BarBarKey,
-    ownerNumbers
+    ownerNumbers,
+    languages
 } = option
 
 // Load Menu File
