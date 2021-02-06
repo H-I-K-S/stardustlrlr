@@ -4,6 +4,7 @@ exports.wait = () => {
 
 exports.timeEnd = () => {
         return `Waktu Habis`
+}
 
 exports.succsess = () => {
         return `✔️ Berhasil ✔️`
