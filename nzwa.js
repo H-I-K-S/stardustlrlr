@@ -1,4 +1,7 @@
 //starts
+//Hayolo numpang nama doang
+//Ckckckck
+//Mengaku yang bukan punya nya
 const {
     WAConnection,
     MessageType,
