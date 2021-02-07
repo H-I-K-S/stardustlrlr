@@ -69,7 +69,7 @@
 
 ---
 
-### Editing Options
+### How To Editing option.json
 
 ```bash
 {
@@ -77,7 +77,8 @@
     "ownerName": "OWNER_NAME",
     "BarBarKey": "YOUR_APIKEY",
     "ownerNumbers": "628885xxxxxx@s.whatsapp.net",
-    "languages": "ind"
+    "languages": "ind",
+    "botPrefix": "."
 }
 ```
 
@@ -103,6 +104,12 @@ Example:
 ```
 - Change ```languages``` with your language ID
 (Comming soon)
+
+- Change ```botPrefix``` with your prefix
+Example:
+```bash
+"botPrefix": "!"
+```
 
 ---
 
