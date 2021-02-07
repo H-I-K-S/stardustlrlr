@@ -66,7 +66,9 @@ const {
     BarBarKey,
     ownerNumbers,
     languages,
-    botPrefix
+    botPrefix,
+    memberLimitss,
+    userDefaultLimit
 } = option
 
 // Load Menu File
@@ -104,8 +106,9 @@ const vcard = 'BEGIN:VCARD\n' // metadata of the contact card
             + 'END:VCARD'
 prefix = botPrefix
 blocked = []
-limitawal = '20'
+limitawal = userDefaultLimit
 cr = '*Verified*'
+memberlimit = memberLimitss
 
 // Functions
 const getLevelingXp = (userId) => {
@@ -503,7 +506,16 @@ async function starts() {
        }
      }
 
-
+        if (isGroup) {
+             try {
+                     const getmemex = groupMembers.length
+                     if (getmemex <= memberlimit) {
+                             client.groupLeave(from)
+                     }
+             } catch {
+                     console.error(err)
+             }
+        }
 
             //function balance
             if (isRegister && isGroup ) {
