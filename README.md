@@ -364,10 +364,13 @@ Follow The Steps Below!
 
 ---
 
+## Group
+* <a href="https://chat.whatsapp.com/EiTttieeSNX9GEXjY74Dr2"><img alt="WhatsApp" src="https://img.shields.io/badge/WhatsApp%20Group-25D366?style=for-the-badge&logo=whatsapp&logoColor=white"/></a>
+
 ## Special Thanks To
 
-- [@adiwajshing/baileys](https://github.com/adiwajshing/Baileys)
-- [MhankBarBar](https://github.com/mhankbarbar)
-- [Nurutomo](https://github.com/Nurutomo)
-- [TobyG74](https://github.com/TobyG74)
-- [ArugaZ](https://github.com/ArugaZ)
+* <a href="https://github.com/adiwajshing/Baileys"><img alt="GitHub" src="https://img.shields.io/badge/adiwajshing/Baileys%20-%23121011.svg?&style=for-the-badge&logo=github&logoColor=white"></a>
+* <a href="https://github.com/mhankbarbar"><img alt="GitHub" src="https://img.shields.io/badge/MhankBarBar%20-%23121011.svg?&style=for-the-badge&logo=github&logoColor=white"></a>
+* <a href="https://github.com/Nurutomo"><img alt="GitHub" src="https://img.shields.io/badge/Nurutomo%20-%23121011.svg?&style=for-the-badge&logo=github&logoColor=white"></a>
+* <a href="https://github.com/TobyG74"><img alt="GitHub" src="https://img.shields.io/badge/TobyG74%20-%23121011.svg?&style=for-the-badge&logo=github&logoColor=white"></a>
+* <a href="https://github.com/ArugaZ"><img alt="GitHub" src="https://img.shields.io/badge/ArugaZ%20-%23121011.svg?&style=for-the-badge&logo=github&logoColor=white"></a>
