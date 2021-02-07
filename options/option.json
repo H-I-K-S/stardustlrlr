@@ -3,5 +3,6 @@
     "ownerName": "OWNER_NAME",
     "BarBarKey": "YOUR_APIKEY",
     "ownerNumbers": "628885xxxxxx@s.whatsapp.net",
-    "languages": "ind"
+    "languages": "ind",
+    "botPrefix": "."
 }
