@@ -13,5 +13,6 @@ npm cache clean -f
 npm install
 npm i got
 
-echo "[*] All dependencies have been installed, please run the command \"npm start\" to immediately start the script"
-echo "Updates : fix menu"
+echo "[INFO] All dependencies have been installed, please run the command \"npm start\" to immediately start the script"
+echo "[INFO] If my script is error, please report a error to me."
+echo "[UPDATE] Move prefix bot to option"
