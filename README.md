@@ -369,3 +369,5 @@ Follow The Steps Below!
 - [@adiwajshing/baileys](https://github.com/adiwajshing/Baileys)
 - [MhankBarBar](https://github.com/mhankbarbar)
 - [Nurutomo](https://github.com/Nurutomo)
+- [TobyG74](https://github.com/TobyG74)
+- [ArugaZ](https://github.com/ArugaZ)
