@@ -65,7 +65,8 @@ const {
     ownerName,
     BarBarKey,
     ownerNumbers,
-    languages
+    languages,
+    botPrefix
 } = option
 
 // Load Menu File
@@ -101,7 +102,7 @@ const vcard = 'BEGIN:VCARD\n' // metadata of the contact card
             + 'ORG:Owner Bot;\n' // the organization of the contact
             + 'TEL;type=CELL;type=VOICE;waid=12542123926:+1 (254) 212-3926\n' // WhatsApp ID + phone number
             + 'END:VCARD'
-prefix = '.'
+prefix = botPrefix
 blocked = []
 limitawal = '20'
 cr = '*Verified*'
