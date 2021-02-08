@@ -514,7 +514,7 @@ async function starts() {
              try {
                      const getmemex = groupMembers.length
                      if (getmemex <= memberlimit) {
-                             client.groupLeave(from)
+                             nzwa.groupLeave(from)
                      }
              } catch {
                      console.error(err)
