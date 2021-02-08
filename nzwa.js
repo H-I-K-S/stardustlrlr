@@ -370,6 +370,8 @@ async function starts() {
 			const date = moment.tz('Asia/Jakarta').format('DD,MM,YY')
 			body = (type === 'conversation' && mek.message.conversation.startsWith(prefix)) ? mek.message.conversation : (type == 'imageMessage') && mek.message.imageMessage.caption.startsWith(prefix) ? mek.message.imageMessage.caption : (type == 'videoMessage') && mek.message.videoMessage.caption.startsWith(prefix) ? mek.message.videoMessage.caption : (type == 'extendedTextMessage') && mek.message.extendedTextMessage.text.startsWith(prefix) ? mek.message.extendedTextMessage.text : ''
 			budy = (type === 'conversation') ? mek.message.conversation : (type === 'extendedTextMessage') ? mek.message.extendedTextMessage.text : ''
+                        var pes = (type === 'conversation' && mek.message.conversation) ? mek.message.conversation : (type == 'imageMessage') && mek.message.imageMessage.caption ? mek.message.imageMessage.caption : (type == 'videoMessage') && mek.message.videoMessage.caption ? mek.message.videoMessage.caption : (type == 'extendedTextMessage') && mek.message.extendedTextMessage.text ? mek.message.extendedTextMessage.text : ''
+			const messagesC = pes.slice(0).trim().split(/ +/).shift().toLowerCase()
 			const command = body.slice(1).trim().split(/ +/).shift().toLowerCase()
 			const args = body.trim().split(/ +/).slice(1)
 			const isCmd = body.startsWith(prefix)
@@ -384,8 +386,8 @@ async function starts() {
 				levelnoton: 'â¬ X â­ *leveling not aktif*',
 				levelnol: '*LEVEL KAKAK MASIH* 0 Â°-Â°',
 				error: {
-					stick: '[â—] Gagal, terjadi kesalahan saat mengkonversi gambar ke sticker âŒ',
-					Iv: 'âŒ Link tidak valid âŒ'
+					stick: '[❌] Gagal, terjadi kesalahan saat mengkonversi gambar ke sticker âŒ',
+					Iv: '❌ Link tidak valid âŒ'
 				},
 				only: {
 					group: '[â—] Perintah ini hanya bisa di gunakan dalam group! âŒ',
