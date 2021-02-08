@@ -379,23 +379,23 @@ async function starts() {
                         const q = args.join(' ')
 
 			mess = {
-				wait: 'âŒ› Sedang di Prosess âŒ›',
-				success: 'âœ”ï¸ Berhasil âœ”ï¸',
-                                levelon: 'â¬ âœ” â­ *enable leveling*',
-				leveloff: ' â¬ X â­  *disable leveling*',
-				levelnoton: 'â¬ X â­ *leveling not aktif*',
-				levelnol: '*LEVEL KAKAK MASIH* 0 Â°-Â°',
+				wait: '⏳ Sedang di Prosess ⏳',
+				success: '✔️ Berhasil âœ”ï¸',
+                                levelon: '✔️ *enable leveling*',
+				leveloff: ' ✔️  *disable leveling*',
+				levelnoton: '❌­ *leveling not aktif*',
+				levelnol: '*LEVEL KAKAK MASIH* 0 °-°',
 				error: {
-					stick: '[❌] Gagal, terjadi kesalahan saat mengkonversi gambar ke sticker âŒ',
-					Iv: '❌ Link tidak valid âŒ'
+					stick: '❌ Gagal, terjadi kesalahan saat mengkonversi gambar ke sticker ❌',
+					Iv: '❌ Link tidak valid ❌'
 				},
 				only: {
-					group: '[â—] Perintah ini hanya bisa di gunakan dalam group! âŒ',
-					ownerG: '[â—] Perintah ini hanya bisa di gunakan oleh owner group! âŒ',
-					ownerB: '[â—] Perintah ini hanya bisa di gunakan oleh owner bot! âŒ',
-					admin: '[â—] Perintah ini hanya bisa di gunakan oleh admin group! âŒ',
-					Badmin: '[â—] Perintah ini hanya bisa di gunakan ketika bot menjadi admin! âŒ',
-                                        daftarB: `â”€â”€ã€Œ BELUM REGISTER ã€â”€â”€\nHalo kak !\nKamu belum Register nih, register dulu yuk... \n\nCommand : ${prefix}register nama|umur\nContoh : ${prefix}register Nazwa|16`,
+					group: '[❕] Perintah ini hanya bisa di gunakan dalam group!',
+					ownerG: '[❕] Perintah ini hanya bisa di gunakan oleh owner group!',
+					ownerB: '[❕] Perintah ini hanya bisa di gunakan oleh owner bot!',
+					admin: '[❕] Perintah ini hanya bisa di gunakan oleh admin group!',
+					Badmin: '[❕] Perintah ini hanya bisa di gunakan ketika bot menjadi admin!',
+                                        daftarB: `──「 BELUM REGISTER 」──\nHalo kak !\nKamu belum Register nih, register dulu yuk... \n\nCommand : ${prefix}register nama|umur\nContoh : ${prefix}register Nazwa|16`,
 				}
 			}
     			const apakah = ['Ya','Tidak']
@@ -422,6 +422,7 @@ async function starts() {
                         const NomerOwner = '12542123926@s.whatsapp.net'
                         const isEventon = isGroup ? event.includes(from) : false
                         const isRegister = checkRegisteredUser(sender)
+                        const isAntiLink = isGroup ? antilink.includes(from) : false
                         pushname = nzwa.contacts[sender] != undefined ? nzwa.contacts[sender].vname || nzwa.contacts[sender].notify : undefined
 
 			const isUrl = (url) => {
@@ -530,6 +531,39 @@ async function starts() {
                 console.error(err)
             }
         }
+
+        if (messagesC.includes("://chat.whatsapp.com/")){
+		if (!isGroup) return
+		if (!isAntiLink) return
+		if (isGroupAdmins) return reply('karena kamu adalah admin group, bot tidak akan kick kamu')
+		nzwa.updatePresence(from, Presence.composing)
+		if (messagesC.includes("#izinadmin")) return reply("#izinadmin diterima")
+		var kic = `${sender.split("@")[0]}@s.whatsapp.net`
+		reply(`Link Group Terdeteksi maaf ${sender.split("@")[0]} anda akan di kick dari group 5detik lagi`)
+		setTimeout( () => {
+			client.groupRemove(from, [kic]).catch((e)=>{reply(`*ERR:* ${e}`)})
+		}, 5000)
+		setTimeout( () => {
+			client.updatePresence(from, Presence.composing)
+			reply("1detik")
+		}, 4000)
+		setTimeout( () => {
+			client.updatePresence(from, Presence.composing)
+			reply("2detik")
+		}, 3000)
+		setTimeout( () => {
+			client.updatePresence(from, Presence.composing)
+			reply("3detik")
+		}, 2000)
+		setTimeout( () => {
+			client.updatePresence(from, Presence.composing)
+			reply("4detik")
+		}, 1000)
+		setTimeout( () => {
+			client.updatePresence(from, Presence.composing)
+			reply("5detik")
+		}, 0)
+	}
 
 			colors = ['red','white','black','blue','yellow','green']
 			const isMedia = (type === 'imageMessage' || type === 'videoMessage')
