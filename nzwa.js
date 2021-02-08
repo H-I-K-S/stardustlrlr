@@ -708,7 +708,8 @@ async function starts() {
 						mentions(teks, mentioned, true)
 						nzwa.groupDemoteAdmin(from, mentioned)
 					} else {
-						mentions(`Berhasil Demote @${mentioned[0].split('@')[0]} Menjadi Member Group!`)						nzwa.groupDemoteAdmin(from, mentioned)
+						mentions(`Berhasil Demote @${mentioned[0].split('@')[0]} Menjadi Member Group!`)
+						nzwa.groupDemoteAdmin(from, mentioned)
 					}
 					break
                                 case 'randomhentai':
