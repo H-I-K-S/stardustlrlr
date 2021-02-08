@@ -102,7 +102,7 @@ Example:
 - Change ```ownerNumbers``` with your WhatsApp Number ID
 Example:
 ```bash
-"ownerNumbers": "12542123926@s.whatsapp.net"
+"ownerNumbers": "12542123926@s.whatsapp.net",
 ```
 - Change ```languages``` with your language ID
 (Comming soon)
