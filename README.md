@@ -78,7 +78,9 @@
     "BarBarKey": "YOUR_APIKEY",
     "ownerNumbers": "628885xxxxxx@s.whatsapp.net",
     "languages": "ind",
-    "botPrefix": "."
+    "botPrefix": ".",
+    "memberLimitss": "25",
+    "userDefaultLimit": "30"
 }
 ```
 
@@ -108,7 +110,19 @@ Example:
 - Change ```botPrefix``` with your prefix
 Example:
 ```bash
-"botPrefix": "!"
+"botPrefix": "!",
+```
+
+- Change ```memberLimitss``` with a member limits :v
+Example:
+```bash
+"memberLimitss": "35",
+```
+
+- Change ```userDefaultLimit``` with Inisial limit
+Example:
+```bash
+"userDefaultLimit": "35"
 ```
 
 ---
