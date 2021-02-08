@@ -41,6 +41,9 @@ const fun = (prefix, botName, ownerName) => {
    ┠──────────────╼
    ┠≽ *${prefix}simi* <text>
    ┃ *Desc* : Talk to Simi
+   ┠──────────────╼
+   ┠≽ *${prefix}say* <text>
+   ┃ *Desc* : Saying:v
    ╿ *${ownerName}*,
    ╰╼≽ *Developer © ${botName}`
 }
