@@ -2543,7 +2543,7 @@ async function starts() {
 						fs.writeFileSync('./src/antilink.json', JSON.stringify(antilink))
 						reply('Sukses mengaktifkan anti link group di group ini ✔️')
 						nzwa.sendMessage(from,`Perhatian kepada seluruh member anti link group aktif apabila anda mengirim link group anda akan di kick dari group`, text)
-					} else if (Number(args[0] === 0) {
+					} else if (Number(args[0]) === 0) {
 						if (!isantilink) return reply('Mode anti link group sudah disable')
 						var ini = anti.indexOf(from)
 						antilink.splice(ini, 1)
