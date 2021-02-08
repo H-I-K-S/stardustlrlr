@@ -701,16 +701,14 @@ async function starts() {
 					if (mek.message.extendedTextMessage === undefined || mek.message.extendedTextMessage === null) return reply('ð“ðšð  ð­ðšð«ð ðžð­ ð²ðšð§ð  ð¦ðšð® ðð¢ ð­ð®ð«ð®ð§ð¤ðšð§ ðšðð¦ð¢ð§')
 					mentioned = mek.message.extendedTextMessage.contextInfo.mentionedJid
 					if (mentioned.length > 1) {
-						teks = ''
+						teks = `Berhasil Demote :\n`
 						for (let _ of mentioned) {
-							teks += `ððžð«ð¢ð§ð­ðšð¡ ðð¢ð­ðžð«ð¢ð¦ðš, ð¦ðžð§ð®ð«ð®ð§ð¤ðšð§ ð£ðšðð¢ ðšðð¦ð¢ð§ ð ð«ð¨ð®ð© :\n`
 							teks += `@_.split('@')[0]`
 						}
 						mentions(teks, mentioned, true)
 						nzwa.groupDemoteAdmin(from, mentioned)
 					} else {
-						mentions(`ððžð«ð¢ð§ð­ðšð¡ ðð¢ð­ðžð«ð¢ð¦ðš, ð¦ðžð§ð®ð«ð®ð§ð¤ðšð§ @${mentioned[0].split('@')[0]}\n ð£ðšðð¢ ðšðð¦ð¢ð§ ð ð«ð¨ð®ð© _*${groupMetadata.subject}*_`, mentioned, true)
-						nzwa.groupDemoteAdmin(from, mentioned)
+						mentions(`Berhasil Demote @${mentioned[0].split('@')[0]} Menjadi Member Group!`)						nzwa.groupDemoteAdmin(from, mentioned)
 					}
 					break
                                 case 'randomhentai':
