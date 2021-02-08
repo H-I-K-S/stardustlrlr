@@ -55,6 +55,7 @@ const event = JSON.parse(fs.readFileSync('./database/json/event.json'))
 const _limit = JSON.parse(fs.readFileSync('./database/json/limit.json'))
 const uang = JSON.parse(fs.readFileSync('./database/json/uang.json'))
 const _registered = JSON.parse(fs.readFileSync('./database/json/registered.json'))
+const antilink = JSON.parse(fs.readFileSync('./database/json/antilink.json'))
 
 // Load options file
 const option = JSON.parse(fs.readFileSync('./options/option.json'))
