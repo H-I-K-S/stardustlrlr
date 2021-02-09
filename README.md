@@ -2,7 +2,7 @@
 <p align="center">
 <a href="https://github.com/NazwaS"><img src="https://raw.githubusercontent.com/NazwaS/NazwaS/main/img/Nazwa.jpg"></a>
 </p>
-<br>
+<br>tes
 
 
 
