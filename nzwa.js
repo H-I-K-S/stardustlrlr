@@ -367,21 +367,21 @@ async function starts() {
 			const type = Object.keys(mek.message)[0]
 			const { text, extendedText, contact, location, liveLocation, image, video, sticker, document, audio, product } = MessageType
 			const time = moment.tz('Asia/Jakarta').format('DD/MM HH:mm:ss')
-            const timi = moment.tz('Asia/Jakarta').add(30, 'days').calendar();
-            const timu = moment.tz('Asia/Jakarta').add(20, 'days').calendar();
+                        const timi = moment.tz('Asia/Jakarta').add(30, 'days').calendar();
+                        const timu = moment.tz('Asia/Jakarta').add(20, 'days').calendar();
 			const date = moment.tz('Asia/Jakarta').format('DD,MM,YY')
 			body = (type === 'conversation' && mek.message.conversation.startsWith(prefix)) ? mek.message.conversation : (type == 'imageMessage') && mek.message.imageMessage.caption.startsWith(prefix) ? mek.message.imageMessage.caption : (type == 'videoMessage') && mek.message.videoMessage.caption.startsWith(prefix) ? mek.message.videoMessage.caption : (type == 'extendedTextMessage') && mek.message.extendedTextMessage.text.startsWith(prefix) ? mek.message.extendedTextMessage.text : ''
 			budy = (type === 'conversation') ? mek.message.conversation : (type === 'extendedTextMessage') ? mek.message.extendedTextMessage.text : ''
-             var pes = (type === 'conversation' && mek.message.conversation) ? mek.message.conversation : (type == 'imageMessage') && mek.message.imageMessage.caption ? mek.message.imageMessage.caption : (type == 'videoMessage') && mek.message.videoMessage.caption ? mek.message.videoMessage.caption : (type == 'extendedTextMessage') && mek.message.extendedTextMessage.text ? mek.message.extendedTextMessage.text : ''
+                        var pes = (type === 'conversation' && mek.message.conversation) ? mek.message.conversation : (type == 'imageMessage') && mek.message.imageMessage.caption ? mek.message.imageMessage.caption : (type == 'videoMessage') && mek.message.videoMessage.caption ? mek.message.videoMessage.caption : (type == 'extendedTextMessage') && mek.message.extendedTextMessage.text ? mek.message.extendedTextMessage.text : ''
 			const messagesC = pes.slice(0).trim().split(/ +/).shift().toLowerCase()
 			const command = body.slice(1).trim().split(/ +/).shift().toLowerCase()
 			const args = body.trim().split(/ +/).slice(1)
 			const isCmd = body.startsWith(prefix)
-            const tescuk = ["0@s.whatsapp.net"]
-            const q = args.join(' ')
-        	const apakah = ['Ya','Tidak']
-        	const bisakah = ['Bisa','Tidak Bisa']
-		    const kapankah = ['Hari Lagi','Minggu Lagi','Bulan Lagi','Tahun Lagi']
+                        const tescuk = ["0@s.whatsapp.net"]
+                        const q = args.join(' ')
+                	const apakah = ['Ya','Tidak']
+        	        const bisakah = ['Bisa','Tidak Bisa']
+		        const kapankah = ['Hari Lagi','Minggu Lagi','Bulan Lagi','Tahun Lagi']
 			const botNumber = nzwa.user.jid
 			const ownerNumber = [ownerNumbers]
 			const nomorOwner = [ownerNumbers]
@@ -428,133 +428,133 @@ async function starts() {
 		                nzwa.sendMessage(from, audio, mp3, {quoted:mek})
 		        }
 
-	        //function leveling
-            if (isGroup && isLevelingOn) {
-            const currentLevel = getLevelingLevel(sender)
-            const checkId = getLevelingId(sender)
-            try {
-                if (currentLevel === undefined && checkId === undefined) addLevelingId(sender)
-                const amountXp = Math.floor(Math.random() * 10) + 500
-                const requiredXp = 5000 * (Math.pow(2, currentLevel) - 1)
-                const getLevel = getLevelingLevel(sender)
-                addLevelingXp(sender, amountXp)
-                if (requiredXp <= getLevelingXp(sender)) {
-                    addLevelingLevel(sender, 1)
-                    await reply(`*「 LEVEL UP 」*\n\n❑ *Name*: ${sender}\n❑ *XP*: ${getLevelingXp(sender)}\n❑ *Level*: ${getLevel} -> ${getLevelingLevel(sender)}\n\nCongrats!! ðŸŽ‰ðŸŽ‰`)
-                }
-            } catch (err) {
-                console.error(err)
-            }
-        }
-            //function check limit
-          const checkLimit = (sender) => {
-                let found = false
-                    for (let lmt of _limit) {
-                        if (lmt.id === sender) {
-                            limitCounts = limitawal - lmt.limit
-                            if (limitCounts <= 0) return nzwa.sendMessage(from,`Limit request anda sudah habis\n\n_Note : Limit akan direset setiap jam 21:00!_`, text,{ quoted: mek})
-                            nzwa.sendMessage(from, ind.limitcount(limitCounts), text, { quoted : mek})
-                            found = true
-                        }
-                    }
-                    if (found === false) {
-                        let obj = { id: sender, limit: 1 }
-                        _limit.push(obj)
-                        fs.writeFileSync('./database/json/limit.json', JSON.stringify(_limit))
-                        nzwa.sendMessage(from, ind.limitcount(limitCounts), text, { quoted : mek})
-                    }
+	                //function leveling
+                        if (isGroup && isLevelingOn) {
+                                const currentLevel = getLevelingLevel(sender)
+                                const checkId = getLevelingId(sender)
+                                try {
+                                        if (currentLevel === undefined && checkId === undefined) addLevelingId(sender)
+                                        const amountXp = Math.floor(Math.random() * 10) + 500
+                                        const requiredXp = 5000 * (Math.pow(2, currentLevel) - 1)
+                                        const getLevel = getLevelingLevel(sender)
+                                        addLevelingXp(sender, amountXp)
+                                        if (requiredXp <= getLevelingXp(sender)) {
+                                        addLevelingLevel(sender, 1)
+                                        await reply(`*「 LEVEL UP 」*\n\n❑ *Name*: ${sender}\n❑ *XP*: ${getLevelingXp(sender)}\n❑ *Level*: ${getLevel} -> ${getLevelingLevel(sender)}\n\nCongrats!! 🥳🎉`)
                                 }
+                        } catch (err) {
+                                console.error(err)
+                        }
+                }
+                //function check limit
+                const checkLimit = (sender) => {
+                        let found = false
+                        for (let lmt of _limit) {
+                                if (lmt.id === sender) {
+                                        limitCounts = limitawal - lmt.limit
+                                        if (limitCounts <= 0) return nzwa.sendMessage(from,`Limit request anda sudah habis\n\n_Note : Limit akan direset setiap jam 21:00!_`, text,{ quoted: mek})
+                                        nzwa.sendMessage(from, ind.limitcount(limitCounts), text, { quoted : mek})
+                                        found = true
+                                }
+                        }
+                        if (found === false) {
+                                let obj = { id: sender, limit: 1 }
+                                _limit.push(obj)
+                                fs.writeFileSync('./database/json/limit.json', JSON.stringify(_limit))
+                                nzwa.sendMessage(from, ind.limitcount(limitCounts), text, { quoted : mek})
+                        }
+                }
 
-                        //funtion limited
-           const isLimit = (sender) =>{
-                      let position = false
-              for (let i of _limit) {
-              if (i.id === sender) {
-                let limits = i.limit
-              if (limits >= limitawal ) {
-                  position = true
-                    nzwa.sendMessage(from, ind.limitend(pushname), text, {quoted: mek})
-                    return true
-              } else {
-                _limit
-                  position = true
-                  return false
-               }
-             }
-           }
-           if (position === false) {
-                const obj = { id: sender, limit: 1 }
-                _limit.push(obj)
-                fs.writeFileSync('./database/json/limit.json',JSON.stringify(_limit))
-           return false
-       }
-     }
+                //funtion limited
+                const isLimit = (sender) =>{
+                        let position = false
+                        for (let i of _limit) {
+                                if (i.id === sender) {
+                                        let limits = i.limit
+                                        if (limits >= limitawal ) {
+                                                position = true
+                                                nzwa.sendMessage(from, ind.limitend(pushname), text, {quoted: mek})
+                                                return true
+                                        } else {
+                                                _limit
+                                                position = true
+                                                return false
+                                        }
+                                }
+                        }
+                        if (position === false) {
+                                const obj = { id: sender, limit: 1 }
+                                _limit.push(obj)
+                                fs.writeFileSync('./database/json/limit.json',JSON.stringify(_limit))
+                                return false
+                        }
+                }
 
-        if (isGroup) {
-             try {
-                     const getmemex = groupMembers.length
-                     if (getmemex <= memberlimit) {
-                             nzwa.groupLeave(from)
-                     }
-             } catch {
-                     console.error(err)
-             }
-        }
+                if (isGroup) {
+                        try {
+                                const getmemex = groupMembers.length
+                                if (getmemex <= memberlimit) {
+                                        nzwa.groupLeave(from)
+                                }
+                        } catch {
+                                console.error(err)
+                        }
+                }
 
-            //function balance
-            if (isRegister && isGroup ) {
-            const checkATM = checkATMuser(sender)
-            try {
-                if (checkATM === undefined) addATM(sender)
-                const uangsaku = Math.floor(Math.random() * 10) + 90
-                addKoinUser(sender, uangsaku)
-            } catch (err) {
-                console.error(err)
-            }
-        }
+                //function balance
+                if (isRegister && isGroup ) {
+                        const checkATM = checkATMuser(sender)
+                        try {
+                                if (checkATM === undefined) addATM(sender)
+                                const uangsaku = Math.floor(Math.random() * 10) + 90
+                                addKoinUser(sender, uangsaku)
+                        } catch (err) {
+                                console.error(err)
+                        }
+                }
 
-        if (messagesC.includes("://chat.whatsapp.com/")){
-		if (!isGroup) return
-		if (!isAntiLink) return
-		if (isGroupAdmins) return reply('karena kamu adalah admin group, bot tidak akan kick kamu')
-		nzwa.updatePresence(from, Presence.composing)
-		if (messagesC.includes("#izinadmin")) return reply("#izinadmin diterima")
-		var kic = `${sender.split("@")[0]}@s.whatsapp.net`
-		reply(`Link Group Terdeteksi maaf ${sender.split("@")[0]} anda akan di kick dari group 5detik lagi`)
-		setTimeout( () => {
-			nzwa.groupRemove(from, [kic]).catch((e)=>{reply(`*ERR:* ${e}`)})
-		}, 5000)
-		setTimeout( () => {
-			nzwa.updatePresence(from, Presence.composing)
-			reply("1detik")
-		}, 4000)
-		setTimeout( () => {
-			nzwa.updatePresence(from, Presence.composing)
-			reply("2detik")
-		}, 3000)
-		setTimeout( () => {
-			nzwa.updatePresence(from, Presence.composing)
-			reply("3detik")
-		}, 2000)
-		setTimeout( () => {
-			nzwa.updatePresence(from, Presence.composing)
-			reply("4detik")
-		}, 1000)
-		setTimeout( () => {
-			nzwa.updatePresence(from, Presence.composing)
-			reply("5detik")
-		}, 0)
-	}
+                if (messagesC.includes("://chat.whatsapp.com/")){
+		        if (!isGroup) return
+		        if (!isAntiLink) return
+		        if (isGroupAdmins) return reply('karena kamu adalah admin group, bot tidak akan kick kamu')
+		        nzwa.updatePresence(from, Presence.composing)
+		        if (messagesC.includes("#izinadmin")) return reply("#izinadmin diterima")
+		        var kic = `${sender.split("@")[0]}@s.whatsapp.net`
+		        reply(`Link Group Terdeteksi maaf ${sender.split("@")[0]} anda akan di kick dari group 5detik lagi`)
+		        setTimeout( () => {
+			        nzwa.groupRemove(from, [kic]).catch((e)=>{reply(`*ERR:* ${e}`)})
+		        }, 5000)
+		        setTimeout( () => {
+			        nzwa.updatePresence(from, Presence.composing)
+			        reply("1detik")
+		        }, 4000)
+		        setTimeout( () => {
+			        nzwa.updatePresence(from, Presence.composing)
+		                reply("2detik")
+		        }, 3000)
+		        setTimeout( () => {
+			        nzwa.updatePresence(from, Presence.composing)
+			        reply("3detik")
+		        }, 2000)
+		        setTimeout( () => {
+			        nzwa.updatePresence(from, Presence.composing)
+			        reply("4detik")
+		        }, 1000)
+		        setTimeout( () => {
+			        nzwa.updatePresence(from, Presence.composing)
+			        reply("5detik")
+		        }, 0)
+	        }
 
 			colors = ['red','white','black','blue','yellow','green']
 			const isMedia = (type === 'imageMessage' || type === 'videoMessage')
 			const isQuotedImage = type === 'extendedTextMessage' && content.includes('imageMessage')
 			const isQuotedVideo = type === 'extendedTextMessage' && content.includes('videoMessage')
 			const isQuotedSticker = type === 'extendedTextMessage' && content.includes('stickerMessage')
-			if (!isGroup && isCmd) console.log('\x1b[1;31m~\x1b[1;37m>', '[\x1b[1;32mEXEC\x1b[1;37m]', time, color(command), 'from', color(sender.split('@')[0]), 'args :', color(args.length))
-			if (!isGroup && !isCmd) console.log('\x1b[1;31m~\x1b[1;37m>', '[\x1b[1;31mRECV\x1b[1;37m]', time, color('Message'), 'from', color(sender.split('@')[0]), 'args :', color(args.length))
-			if (isCmd && isGroup) console.log('\x1b[1;31m~\x1b[1;37m>', '[\x1b[1;32mEXEC\x1b[1;37m]', time, color(command), 'from', color(sender.split('@')[0]), 'in', color(groupName), 'args :', color(args.length))
-			if (!isCmd && isGroup) console.log('\x1b[1;31m~\x1b[1;37m>', '[\x1b[1;31mRECV\x1b[1;37m]', time, color('Message'), 'from', color(sender.split('@')[0]), 'in', color(groupName), 'args :', color(args.length))
+			if (!isGroup && isCmd) console.log('\x1b[1;31m~\x1b[1;37m>', '[\x1b[1;32mCLIENT EXEC\x1b[1;37m]', time, color(command), 'from', color(sender.split('@')[0]), 'args :', color(args.length))
+			if (!isGroup && !isCmd) console.log('\x1b[1;31m~\x1b[1;37m>', '[\x1b[1;31mCLIENT RECV\x1b[1;37m]', time, color('Message'), 'from', color(sender.split('@')[0]), 'args :', color(args.length))
+			if (isCmd && isGroup) console.log('\x1b[1;31m~\x1b[1;37m>', '[\x1b[1;32mCLIENT EXEC\x1b[1;37m]', time, color(command), 'from', color(sender.split('@')[0]), 'in', color(groupName), 'args :', color(args.length))
+			if (!isCmd && isGroup) console.log('\x1b[1;31m~\x1b[1;37m>', '[\x1b[1;31mCLIENT RECV\x1b[1;37m]', time, color('Message'), 'from', color(sender.split('@')[0]), 'in', color(groupName), 'args :', color(args.length))
                      // Load Commands
 			switch(command) {
                                 case 'help':
