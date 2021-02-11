@@ -44,6 +44,8 @@ const cd = 4.32e+7
 const crypto = require('crypto')
 const qrcode = require("qrcode-terminal")
 const axios = require('axios')
+const lolcatjs = require('lolcatjs')
+const figlet = require('figlet')
 
 // Load Json File
 const welkom = JSON.parse(fs.readFileSync('./database/json/welkom.json'))
@@ -310,10 +312,13 @@ async function starts() {
 		start('2', 'Connecting...')
 	})
 	nzwa.on('open', () => {
-		success('2', 'Connected')
+		success('2', '[BOT] BOT is now online!')
 	})
 	await nzwa.connect({timeoutMs: 30*1000})
         fs.writeFileSync('./Nazwa.json', JSON.stringify(nzwa.base64EncodedAuthInfo(), null, '\t'))
+
+        console.log('=> Bot succsessfully loaded!')
+        lolcatjs.fromString('[DEV] Welcome back Owner! Hope you are doing well-')
 
 	nzwa.on('group-participants-update', async (anu) => {
 		if (!welkom.includes(anu.jid)) return
