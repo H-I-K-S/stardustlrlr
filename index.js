@@ -1,4 +1,12 @@
-console.log('[SYSTEM] Starting Bot...')
+const lolcatjs = require('lolcatjs')
+const figlet = require('figlet')
+
+lolcatjs.options.seed = Math.round(Math.random() * 1000);
+lolcatjs.options.colors = true;
+
+lolcatjs.fromString('[INFO] IF MY SCRIPT IS ERROR, PLEASE REPORT THAT TO ME')
+lolcatjs.fromString('[SYSTEM] STARTING BOT...')
+console.log('------------------------------------------------')
 let { spawn } = require('child_process')
 let path = require('path')
 const CFonts  = require('cfonts')
@@ -12,6 +20,8 @@ CFonts.say('\'termux-whatsapp-bot\' By @NazwaS', {
   align: 'center',
   gradient: ['red', 'magenta']
 })
+console.log('------------------------------------------------')
+lolcatjs.fromString('[DEV] NAZWAS')
 
 function start() {
   let args = [path.join(__dirname, 'nzwa.js'), ...process.argv.slice(2)]
