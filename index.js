@@ -21,7 +21,6 @@ CFonts.say('\'termux-whatsapp-bot\' By @NazwaS', {
   gradient: ['red', 'magenta']
 })
 console.log('------------------------------------------------')
-lolcatjs.fromString('[DEV] NAZWAS')
 
 function start() {
   let args = [path.join(__dirname, 'nzwa.js'), ...process.argv.slice(2)]
@@ -44,3 +43,5 @@ function start() {
 }
 
 start()
+console.log('------------------------------------------------')
+lolcatjs.fromString('[DEV] NAZWAS')
