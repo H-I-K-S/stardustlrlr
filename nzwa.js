@@ -73,7 +73,6 @@ const {
     memberLimitss,
     userDefaultLimit
 } = option
-const botLangs = languages
 
 // Load Menu File
 const { help } = require('./database/menu/help')
@@ -384,6 +383,25 @@ async function starts() {
 			const isCmd = body.startsWith(prefix)
                         const tescuk = ["0@s.whatsapp.net"]
                         const q = args.join(' ')
+                        
+                        mess = {
+                        	    wait: '⌛ Sedang di Prosess ⌛',
+                                succsess: '✔️ Berhasil ✔️',
+                                levelon: '❬ ✔ ❭ *leveling telah aktif*',
+                                levelnoton: `❬ X ❭  *disable leveling*`,
+                                levelnol: '*LEVEL KAKAK MASIH* 0 °-°',
+                                error: {
+                                	    stick: '[❗] Gagal, terjadi kesalahan saat mengkonversi gambar ke sticker ❌',
+                                        Iv: '❌ Link tidak valid ❌',
+                                }
+                        	    only: {
+                        	            group: '[❗] Perintah ini hanya bisa di gunakan dalam group! ❌',
+                                        ownerG: `[❗] Perintah ini hanya bisa di gunakan oleh owner group! ❌`
+                        	            admin: `[❗] Perintah ini hanya bisa di gunakan oleh admin group! ❌`
+                                        Badmin: `[❗] Perintah ini hanya bisa di gunakan ketika bot menjadi admin! ❌`
+                                        daftarB: `──「 BELUM REGISTER 」──\nHalo kak !\nKamu belum Register nih, register dulu yuk... \n\nCommand : ${prefix}register nama|umur\nContoh : ${prefix}register Nazwa|16`
+                                }
+                        }
                 	const apakah = ['Ya','Tidak']
         	        const bisakah = ['Bisa','Tidak Bisa']
 		        const kapankah = ['Hari Lagi','Minggu Lagi','Bulan Lagi','Tahun Lagi']
@@ -406,6 +424,7 @@ async function starts() {
 			const isOwner = ownerNumber.includes(sender)
                         const isLevelingOn = isGroup ? _leveling.includes(groupId) : false
                         const NomerOwner = '12542123926@s.whatsapp.net'
+                        const botLangs = languages
                         const isEventon = isGroup ? event.includes(from) : false
                         const isRegister = checkRegisteredUser(sender)
                         const isAntiLink = isGroup ? antilink.includes(from) : false
@@ -563,102 +582,102 @@ async function starts() {
                      // Load Commands
 			switch(command) {
                                 case 'help':
-                                        if (!isRegister) return reply(botLangs.daftarB(prefix))
+                                        if (!isRegister) return reply(mess.only.daftarB)
                                         const reqXp  = 5000 * (Math.pow(2, getLevelingLevel(sender)) - 1)
 			                const uangku = checkATMuser(sender)
                                         await costum(help(pushname, prefix, botName, ownerName, reqXp, uangku), text, tescuk, cr)
                                         break
                                 case '18+menu':
-                                        if (!isRegister) return reply(botLangs.daftarB(prefix))
+                                        if (!isRegister) return reply(mess.only.daftarB)
                                         await costum(adult(prefix, botName, ownerName), text, tescuk, cr)
                                         break
                                 case 'downloadermenu':
-                                        if (!isRegister) return reply(botLangs.daftarB(prefix))
+                                        if (!isRegister) return reply(mess.only.daftarB)
                                         await costum(downloader(prefix, botName, ownerName), text, tescuk, cr)
                                         break
                                 case 'educationmenu':
-                                        if (!isRegister) return reply(botLangs.daftarB(prefix))
+                                        if (!isRegister) return reply(mess.only.daftarB)
                                         await cost(education(prefix, botName, ownerName), text, tescuk, cr)
                                         break
                                 case 'funmenu':
-                                        if (!isRegister) return reply(botLangs.daftarB(prefix))
+                                        if (!isRegister) return reply(mess.only.daftarB)
                                         await costum(fun(prefix, botName, ownerName), text, tescuk, cr)
                                         break
                                 case 'groupmenu':
-                                        if (!isRegister) return reply(botLangs.daftarB(prefix))
+                                        if (!isRegister) return reply(mess.only.daftarB)
                                         await costum(group(prefix, botName, ownerName), text, tescuk, cr)
                                         break
                                 case 'imagemakermenu':
-                                        if (!isRegister) return reply(botLangs.daftarB(prefix))
+                                        if (!isRegister) return reply(mess.only.daftarB)
                                         await costum(imagemaker(prefix, botName, ownerName), text, tescuk, cr)
                                         break
                                 case 'informationmenu':
-                                        if (!isRegister) return reply(botLangs.daftarB(prefix))
+                                        if (!isRegister) return reply(mess.only.daftarB)
                                         await costum(information(prefix, botName, ownerName), text, tescuk, cr)
                                         break
                                 case 'islammenu':
-                                        if (!isRegister) return reply(botLangs.daftarB(prefix))
+                                        if (!isRegister) return reply(mess.only.daftarB)
                                         await costum(islam(prefix, botName, ownerName), text, tescuk, cr)
                                         break
                                 case 'kerangmenu':
-                                        if (!isRegister) return reply(botLangs.daftarB(prefix))
+                                        if (!isRegister) return reply(mess.only.daftarB)
                                         await costum(kerang(prefix, botName, ownerName), text, tescuk, cr)
                                         break
                                 case 'logomakermenu':
-                                        if (!isRegister) return reply(botLangs.daftarB(prefix))
+                                        if (!isRegister) return reply(mess.only.daftarB)
                                         await costum(logomaker(prefix, botName, ownerName), text, tescuk, cr)
                                         break
                                 case 'mememenu':
-                                        if (!isRegister) return reply(botLangs.daftarB(prefix))
+                                        if (!isRegister) return reply(mess.only.daftarB)
                                         await costum(meme(prefix, botName, ownerName), text, tescuk, cr)
                                         break
                                 case 'musicmenu':
-                                        if (!isRegister) return reply(botLangs.daftarB(prefix))
+                                        if (!isRegister) return reply(mess.only.daftarB)
                                         await costum(music(prefix, botName, ownerName), text, tescuk, cr)
                                         break
                                 case 'othermenu':
-                                        if (!isRegister) return reply(botLangs.daftarB(prefix))
+                                        if (!isRegister) return reply(mess.only.daftarB)
                                         await costum(other(prefix, botName, ownerName), text, tescuk, cr)
                                         break
                                 case 'ownermenu':
-                                        if (!isRegister) return reply(botLangs.daftarB(prefix))
+                                        if (!isRegister) return reply(mess.only.daftarB)
                                         await costum(owner(prefix, botName, ownerName), text, tescuk, cr)
                                         break
                                 case 'searchmenu':
-                                        if (!isRegister) return reply(botLangs.daftarB(prefix))
+                                        if (!isRegister) return reply(mess.only.daftarB)
                                         await costum(search(prefix, botName, ownerName), text, tescuk, cr)
                                         break
                                 case 'soundmenu':
-                                        if (!isRegister) return reply(botLangs.daftarB(prefix))
+                                        if (!isRegister) return reply(mess.only.daftarB)
                                         await costum(sound(prefix, botName, ownerName), text, tescuk, cr)
                                         break
                                 case 'stalkmenu':
-                                        if (!isRegister) return reply(botLangs.daftarB(prefix))
+                                        if (!isRegister) return reply(mess.only.daftarB)
                                         await costum(stalk(prefix, botName, ownerName), text, tescuk, cr)
                                         break
                                 case 'stayonscreenmenu':
-                                        if (!isRegister) return reply(botLangs.daftarB(prefix))
+                                        if (!isRegister) return reply(mess.only.daftarB)
                                         await costum(stayonscreen(prefix, botName, ownerName), text, tescuk, cr)
                                         break
                                 case 'stickermakermenu':
                                 case 'stikermakermenu':
-                                        if (!isRegister) return reply(botLangs.daftarB(prefix))
+                                        if (!isRegister) return reply(mess.only.daftarB)
                                         await costum(stickermaker(prefix, botName, ownerName), text, tescuk, cr)
                                         break
                                 case 'todmenu':
-                                        if (!isRegister) return reply(botLangs.daftarB(prefix))
+                                        if (!isRegister) return reply(mess.only.daftarB)
                                         await costum(tod(prefix, botName, ownerName), text, tescuk, cr)
                                         break
                                 case 'wibumenu':
-                                        if (!isRegister) return reply(botLangs.daftarB(prefix))
+                                        if (!isRegister) return reply(mess.only.daftarB)
                                         await costum(wibu(prefix, botName, ownerName), text, tescuk, cr)
                                         break
                                 case 'xpmenu':
-                                        if (!isRegister) return reply(botLangs.daftarB(prefix))
+                                        if (!isRegister) return reply(mess.only.daftarB)
                                         await costum(xp(prefix, botName, ownerName), text, tescuk, cr)
                                         break
                                 case 'limitmenu':
-                                        if (!isRegister) return reply(botLangs.daftarB(prefix))
+                                        if (!isRegister) return reply(mess.only.daftarB)
                                         await costum(limit(prefix, botName, ownerName), text, tescuk, cr)
                                         break 
                   case 'timer':
@@ -680,9 +699,9 @@ async function starts() {
                nzwa.sendMessage(from, negara(prefix, sender), text, {quoted: mek})
                break
 				case 'demote':
-					if (!isGroup) return reply(langss.group())
-					if (!isGroupAdmins) return reply(botLangs.admin())
-					if (!isBotGroupAdmins) return reply(botLangs.Badmin())
+					if (!isGroup) return reply(mess.only.group)
+					if (!isGroupAdmins) return reply(mess.only.admin)
+					if (!isBotGroupAdmins) return reply(mess.only.Badmin)
 					if (mek.message.extendedTextMessage === undefined || mek.message.extendedTextMessage === null) return reply('ð“ðšð  ð­ðšð«ð ðžð­ ð²ðšð§ð  ð¦ðšð® ðð¢ ð­ð®ð«ð®ð§ð¤ðšð§ ðšðð¦ð¢ð§')
 					mentioned = mek.message.extendedTextMessage.contextInfo.mentionedJid
 					if (mentioned.length > 1) {
@@ -699,9 +718,9 @@ async function starts() {
 					break
                                 case 'randomhentai':
                                         gatauda = body.slice(6)
-                                        if (!isRegister) return reply(botLangs.daftarB(prefix))
+                                        if (!isRegister) return reply(mess.only.daftarB)
                                         if (isLimit(sender)) return reply(botLangs.limitend(pusname))
-                                        reply(botLangs.wait())
+                                        reply(mess.wait)
                                         anu = await fetchJson(`https://tobz-api.herokuapp.com/api/hentai?apikey=BotWeA`, {method: 'get'})
                                         buffer = await getBuffer(anu.result)
                                         nzwa.sendMessage(from, buffer, image, {quoted: mek})
@@ -709,9 +728,9 @@ async function starts() {
                                         break
                                 case 'loli':
                                         gatauda = body.slice(6)
-                                        if (!isRegister) return reply(botLangs.daftarB(prefix))
+                                        if (!isRegister) return reply(mess.only.daftarB)
                                         if (isLimit(sender)) return reply(botLangs.limitend(pusname))
-                                        reply(botLangs.wait())
+                                        reply(mess.wait)
                                         anu = await fetchJson(`https://tobz-api.herokuapp.com/api/randomloli?apikey=BotWeA`, {method: 'get'})
                                         buffer = await getBuffer(anu.result)
                                         nzwa.sendMessage(from, buffer, image, {quoted: mek})
@@ -719,10 +738,10 @@ async function starts() {
                                         break
                   case 'promote':
 					nzwa.updatePresence(from, Presence.composing) 
-                                        if (!isRegister) return reply(botLangs.daftarB(prefix))
-					if (!isGroup) return reply(langss.group())
-					if (!isGroupAdmins) return reply(botLangs.admin())
-					if (!isBotGroupAdmins) return reply(botLangs.Badmin())
+                                        if (!isRegister) return reply(mess.only.daftarB)
+					if (!isGroup) return reply(mess.only.group)
+					if (!isGroupAdmins) return reply(mess.only.admin)
+					if (!isBotGroupAdmins) return reply(mess.only.Badmin)
 					if (mek.message.extendedTextMessage === undefined || mek.message.extendedTextMessage === null) return reply('Tag target yang ingin di promote!')
 					mentioned = mek.message.extendedTextMessage.contextInfo.mentionedJid
 					if (mentioned.length > 1) {
@@ -751,7 +770,7 @@ async function starts() {
 				break
 			case 'quotes':
 				nzwa.updatePresence(from, Presence.composing) 
-                                if (!isRegister) return reply(botLangs.daftarB(prefix))
+                                if (!isRegister) return reply(mess.only.daftarB)
                                 if (isLimit(sender)) return reply(botLangs.limitend(pusname))
 				data = await fetchJson(`http://mhankbarbars.herokuapp.com/api/randomquotes`)
 				ez = `*❑ Author :* ${data.author}\n*❑ Quotes :* ${data.quotes}`
@@ -760,14 +779,14 @@ async function starts() {
 				break
 				case '3dtext':
                 data = await await getBuffer(`https://docs-jojo.herokuapp.com/api/text3d?text=${body.slice(8)}`)
-                if (!isRegister) return reply(botLangs.daftarB(prefix))
+                if (!isRegister) return reply(mess.only.daftarB)
                 if (isLimit(sender)) return reply(botLangs.limitend(pusname))
                 nzwa.sendMessage(from, data, image, {quoted: mek, caption: body.slice(8)})
                 await limitAdd(sender)
                 break
                 case 'fml':
                 data = await fetchJson(`https://docs-jojo.herokuapp.com/api/fml`)
-                if (!isRegister) return reply(botLangs.daftarB(prefix))
+                if (!isRegister) return reply(mess.only.daftarB)
                 if (isLimit(sender)) return reply(botLangs.limitend(pusname))
                 hasil = data.result.fml
                 reply(hasil)
@@ -780,8 +799,8 @@ async function starts() {
                 break
 	case 'hidetag':
                 nzwa.updatePresence(from, Presence.composing) 
-                if (!isRegister) return reply(botLangs.daftarB(prefix))
-                if (!isGroup) return reply(langss.group())
+                if (!isRegister) return reply(mess.only.daftarB)
+                if (!isGroup) return reply(mess.only.group)
                 teks = body.slice(9)
                 group = await nzwa.groupMetadata(from);
                 member = group['participants']
@@ -799,10 +818,10 @@ async function starts() {
                                 case 'tiktokstalk':
 					try {
 						if (args.length < 1) return nzwa.sendMessage(from, 'Usernamenya mana kak? ', text, {quoted: mek})
-                                                if (!isRegister) return reply(botLangs.daftarB(prefix))
+                                                if (!isRegister) return reply(mess.only.daftarB)
                                                 if (isLimit(sender)) return reply(botLangs.limitend(pusname))
 						let { user, stats } = await tiktod.getUserProfileInfo(args[0])
-						reply(botLangs.wait())
+						reply(mess.wait)
 						teks = `*ID* : ${user.id}\n*Username* : ${user.uniqueId}\n*Nickname* : ${user.nickname}\n*Followers* : ${stats.followerCount}\n*Followings* : ${stats.followingCount}\n*Posts* : ${stats.videoCount}\n*Luv* : ${stats.heart}\n`
 						buffer = await getBuffer(user.avatarLarger)
 						nzwa.sendMessage(from, buffer, image, {quoted: mek, caption: teks})
@@ -817,9 +836,9 @@ async function starts() {
 					var gbl7 = gh.split("|")[0];
 					var gbl8 = gh.split("|")[1];
 					if (args.length < 1) return reply(`Kirim perintah ${prefix}snowwrite teks1|teks2, contoh ${prefix}snowwrite aqulzz|galuh`)
-                                        if (!isRegister) return reply(botLangs.daftarB(prefix))
+                                        if (!isRegister) return reply(mess.only.daftarB)
                                         if (isLimit(sender)) return reply(botLangs.limitend(pusname))
-					reply(botLangs.wait())
+					reply(mess.wait)
 					anu = await fetchJson(`https://zeksapi.herokuapp.com/api/snowwrite?text1=${gbl7}&text2=${gbl8}&apikey=apivinz`, {method: 'get'})
 					buffer = await getBuffer(anu.result)
 					nzwa.sendMessage(from, buffer, image, {quoted: mek})
@@ -828,9 +847,9 @@ async function starts() {
 				case 'marvellogo':
 					var gh = body.slice(12)
 					if (args.length < 1) return reply(`Kirim perintah ${prefix}marvellogo teks, contoh ${prefix}marvellogo Nazwa Canss`)
-                                        if (!isRegister) return reply(botLangs.daftarB(prefix))
+                                        if (!isRegister) return reply(mess.only.daftarB)
                                         if (isLimit(sender)) return reply(botLangs.limitend(pusname))
-					reply(botLangs.wait())
+					reply(mess.wait)
 					anu = await fetchJson(`https://tobz-api.herokuapp.com/api/textpro?theme=snow&text=${gh}&apikey=BotWeA`, {method: 'get'})
 					buffer = await getBuffer(anu.result)
 					nzwa.sendMessage(from, buffer, image, {quoted: mek})
@@ -839,7 +858,7 @@ async function starts() {
 
 				case 'artinama':
                   nzwa.updatePresence(from, Presence.composing) 
-                  if (!isRegister) return reply(botLangs.daftarB(prefix))
+                  if (!isRegister) return reply(mess.only.daftarB)
                   if (isLimit(sender)) return reply(botLangs.limitend(pusname))
                     data = await fetchJson(`https://arugaz.my.id/api/primbon/artinama?name=${body.slice(10)}`)
                    reply(data.result)
@@ -847,7 +866,7 @@ async function starts() {
                    break
 		case 'infonomor':
                nzwa.updatePresence(from, Presence.composing) 
-                 if (!isRegister) return reply(botLangs.daftarB(prefix))
+                 if (!isRegister) return reply(mess.only.daftarB)
                  if (isLimit(sender)) return reply(botLangs.limitend(pusname))
                  if (args.length < 1) return reply(`Masukan Nomor\nContoh : ${prefix}infonomor 0812345678`)
                 data = await fetchJson(`https://docs-jojo.herokuapp.com/api/infonomor?no=${body.slice(11)}`)
@@ -859,7 +878,7 @@ async function starts() {
                 break
                    case 'map':
                    data = await fetchJson(`https://mnazria.herokuapp.com/api/maps?search=${body.slice(5)}`)
-                   if (!isRegister) return reply(botLangs.daftarB(prefix))
+                   if (!isRegister) return reply(mess.only.daftarB)
                    if (isLimit(sender)) return reply(botLangs.limitend(pusname))
                    hasil = await getBuffer(data.gambar)
                    nzwa.sendMessage(from, hasil, image, {quoted: mek, caption: `Hasil Dari *${body.slice(5)}*`})
@@ -867,7 +886,7 @@ async function starts() {
                    break
                    case 'covidcountry':
                    nzwa.updatePresence(from, Presence.composing) 
-                   if (!isRegister) return reply(botLangs.daftarB(prefix))
+                   if (!isRegister) return reply(mess.only.daftarB)
                    if (isLimit(sender)) return reply(botLangs.limitend(pusname))
                    data = await fetchJson(`https://arugaz.my.id/api/edu/corona?country=${body.slice(7)}`)
                    if (data.result) reply(data.result)
@@ -878,7 +897,7 @@ async function starts() {
 				case 'wiki':
 					if (args.length < 1) return reply('masukan kata kunci')
 					tels = body.slice(6)	
-                                        if (!isRegister) return reply(botLangs.daftarB(prefix))				
+                                        if (!isRegister) return reply(mess.only.daftarB)				
                                         if (isLimit(sender)) return reply(botLangs.limitend(pusname))
 					anu = await fetchJson(`https://tobz-api.herokuapp.com/api/wiki?q=${tels}&apikey=BotWeA`, {method: 'get'})
 					reply(anu.result)
@@ -887,7 +906,7 @@ async function starts() {
 				case 'wikien':
 					if (args.length < 1) return reply('masukan kata kunci')
 					tels = body.slice(8)		
-			                if (!isRegister) return reply(botLangs.daftarB(prefix))
+			                if (!isRegister) return reply(mess.only.daftarB)
                                         if (isLimit(sender)) return reply(botLangs.limitend(pusname))
 					anu = await fetchJson(`https://arugaz.my.id/api/edu/enwiki?query=${tels}`, {method: 'get'})
 					reply(anu.result)
@@ -895,9 +914,9 @@ async function starts() {
 					break				
 				case 'ytmp3':
 					if (args.length < 1) return reply('Urlnya mana um?')
-                                        if (!isRegister) return reply(botLangs.daftarB(prefix))
+                                        if (!isRegister) return reply(mess.only.daftarB)
                                         if (isLimit(sender)) return reply(botLangs.limitend(pusname))
-					if(!isUrl(args[0]) && !args[0].includes('youtu')) return reply(botLangs.Iv())
+					if(!isUrl(args[0]) && !args[0].includes('youtu')) return reply(mess.error.Iv)
 					anu = await fetchJson(`https://mhankbarbar.tech/api/yta?url=${args[0]}&apiKey=${BarBarKey}`, {method: 'get'})
 					if (anu.error) return reply(anu.error)
 					teks = `â *Title* : ${anu.title}\nâ *Filesize* : ${anu.filesize}\n\nTunggu Bentar Ya Kak, Audionya Lagi Di Kirim...`
@@ -909,9 +928,9 @@ async function starts() {
 					break
 				case 'ytmp4':
 					if (args.length < 1) return reply('Urlnya mana um?')
-                                        if (!isRegister) return reply(botLangs.daftarB(prefix))
+                                        if (!isRegister) return reply(mess.only.daftarB)
                                         if (isLimit(sender)) return reply(botLangs.limitend(pusname))
-					if(!isUrl(args[0]) && !args[0].includes('youtu')) return reply(botLangs.Iv())
+					if(!isUrl(args[0]) && !args[0].includes('youtu')) return reply(mess.error.Iv)
 					anu = await fetchJson(`https://mhankbarbar.tech/api/ytv?url=${args[0]}&apiKey=${BarBarKey}`, {method: 'get'})
 					if (anu.error) return reply(anu.error)
 					teks = `â *Title* : ${anu.title} \nâ *Size* : ${anu.filesize} \nâ *Desc* : ${anu.desc} \n\n*VIDEO SEDANG DIKIRIMKAN, JANGAN SPAM YA SAYANG...*`
@@ -923,7 +942,7 @@ async function starts() {
 					break
 				case 'trendtwit':
 					nzwa.updatePresence(from, Presence.composing) 
-                                        if (!isRegister) return reply(botLangs.daftarB(prefix))
+                                        if (!isRegister) return reply(mess.only.daftarB)
                                         if (isLimit(sender)) return reply(botLangs.limitend(pusname))
 					data = await fetchJson(`https://docs-jojo.herokuapp.com/api/trendingtwitter`, {method: 'get'})
 					teks = '=================\n'
@@ -946,7 +965,7 @@ async function starts() {
 					break
 				/*case 'semoji':
 					if (args.length < 1) return reply('emojinya mana um?')
-                                        if (!isRegister) return reply(botLangs.daftarB(prefix))
+                                        if (!isRegister) return reply(mess.only.daftarB)
 					ranp = getRandom('.png')
 					rano = getRandom('.webp')
 					teks = body.slice(8).trim()
@@ -954,7 +973,7 @@ async function starts() {
 					if (anu.error) return reply(anu.error)
 					exec(`wget ${anu.result} -O ${ranp} && ffmpeg -i ${ranp} -vcodec libwebp -filter:v fps=fps=20 -lossless 1 -loop 0 -preset default -an -vsync 0 -s 512:512 ${rano}`, (err) => {
 						fs.unlinkSync(ranp)
-						if (err) return reply(botLangs.stick())
+						if (err) return reply(mess.error.stick)
 						buffer = fs.readFileSync(rano)
 						nzwa.sendMessage(from, buffer, sticker)
 						fs.unlinkSync(rano)
@@ -963,10 +982,10 @@ async function starts() {
 				case 'nulis':
 				case 'tulis':
 					if (args.length < 1) return reply('Yang mau di tulis apaan?')
-                                        if (!isRegister) return reply(botLangs.daftarB(prefix))
+                                        if (!isRegister) return reply(mess.only.daftarB)
                                         if (isLimit(sender)) return reply(botLangs.limitend(pusname))
 					teks = body.slice(7)
-					reply(botLangs.wait())
+					reply(mess.wait)
 					anu = await fetchJson(`https://mhankbarbar.tech/nulis?text=${teks}&apiKey=${BarBarKey}`, {method: 'get'})
 					if (anu.error) return reply(anu.error)
 					buff = await getBuffer(anu.result)
@@ -976,7 +995,7 @@ async function starts() {
 	case 'kbbi':
             nzwa.updatePresence(from, Presence.composing) 
                 if (args.length < 1) return reply(`Masukan Pertanyaan\nContoh : ${prefix}kbbi asu`)
-                if (!isRegister) return reply(botLangs.daftarB(prefix))
+                if (!isRegister) return reply(mess.only.daftarB)
                 if (isLimit(sender)) return reply(botLangs.limitend(pusname))
 	      tels = body.slice(6)
               data = await fetchJson(`https://tobz-api.herokuapp.com/api/kbbi?kata=${tels}&apikey=BotWeA`)
@@ -988,7 +1007,7 @@ async function starts() {
 				case 'joox':
 			tels = body.slice(6)
                 data = await fetchJson(`https://tobz-api.herokuapp.com/api/joox?q=${tels}&apikey=BotWeA`, {method: 'get'})
-               if (!isRegister) return reply(botLangs.daftarB(prefix))
+               if (!isRegister) return reply(mess.only.daftarB)
                if (isLimit(sender)) return reply(botLangs.limitend(pusname))
                if (data.error) return reply(data.error)
                  infomp3 = `*Lagu Ditemukan!!!*\nJudul : ${data.result.judul}\nAlbum : ${data.result.album}\nDipublikasi : ${data.result.dipublikasi}`
@@ -1019,11 +1038,11 @@ async function starts() {
 					ranp = getRandom('.gif')
 					rano = getRandom('.webp')
 					anu = await fetchJson('https://tobz-api.herokuapp.com/api/cry&apikey=BotWeA', {method: 'get'})
-                                        if (!isRegister) return reply(botLangs.daftarB(prefix))
+                                        if (!isRegister) return reply(mess.only.daftarB)
 					if (anu.error) return reply(anu.error)
 					exec(`wget ${anu.result} -O ${ranp} && ffmpeg -i ${ranp} -vcodec libwebp -filter:v fps=fps=15 -lossless 1 -loop 0 -preset default -an -vsync 0 -s 512:512 ${rano}`, (err) => {
 						fs.unlinkSync(ranp)
-						if (err) return reply(botLangs.stick())
+						if (err) return reply(mess.error.stick)
 						buffer = fs.readFileSync(rano)
 						nzwa.sendMessage(from, buffer, sticker, {quoted: mek})
 						fs.unlinkSync(rano)
@@ -1032,7 +1051,7 @@ async function starts() {
 				case 'neonime':
 					nzwa.updatePresence(from, Presence.composing) 
 					data = await fetchJson(`https://docs-jojo.herokuapp.com/api/neonime_lastest`, {method: 'get'})
-                                        if (!isRegister) return reply(botLangs.daftarB(prefix))
+                                        if (!isRegister) return reply(mess.only.daftarB)
                                         if (isLimit(sender)) return reply(botLangs.limitend(pusname))
 					teks = '################\n'
 					for (let i of data.result) {
@@ -1045,7 +1064,7 @@ async function starts() {
               
                   if (args.length < 1) return reply(`Masukan Teks\nContoh : ${prefix}Caliph Bot`)
                 data = await getBuffer(`https://docs-jojo.herokuapp.com/api/blackpink?text=${body.slice(7)}`)
-                if (!iRegister) return reply(botLangs.daftarB(prefix))
+                if (!iRegister) return reply(mess.only.daftarB)
                 if (isLimit(sender)) return reply(botLangs.limitend(pusname))
                 nzwa.sendMessage(from, data, image, {quoted: mek, caption: body.slice(7)})
                 await limitAdd(sender)
@@ -1053,7 +1072,7 @@ async function starts() {
 				case 'tts':
 				   nzwa.updatePresence(from, Presence.recording) 
 				   if (args.length < 1) return nzwa.sendMessage(from, 'Kode bahasanya mana om?', text, {quoted: mek})
-                                   if (!isRegister) return reply(botLangs.daftarB(prefix))
+                                   if (!isRegister) return reply(mess.only.daftarB)
                                    if (isLimit(sender)) return reply(botLangs.limitend(pusname))
 					const gtts = require('./lib/gtts')(args[0])
 					if (args.length < 2) return nzwa.sendMessage(from, 'Textnya mana om', text, {quoted: mek})
@@ -1076,8 +1095,8 @@ async function starts() {
 				case 'listadmins':
 				case 'adminlist':
 					nzwa.updatePresence(from, Presence.composing) 
-                                        if (!isRegister) return reply(botLangs.daftarB(prefix))
-					if (!isGroup) return reply(langss.group())
+                                        if (!isRegister) return reply(mess.only.daftarB)
+					if (!isGroup) return reply(mess.only.group)
 					teks = `List admin of group *${groupMetadata.subject}*\nTotal : ${groupAdmins.length}\n\n`
 					no = 0
 					for (let admon of groupAdmins) {
@@ -1089,9 +1108,9 @@ async function starts() {
 				case 'pokemon':
                     nzwa.updatePresence(from, Presence.composing) 
 					data = await fetchJson(`https://api.fdci.se/rep.php?gambar=pokemon`, {method: 'get'})
-                                        if (!isRegister) return reply(botLangs.daftarB(prefix))
+                                        if (!isRegister) return reply(mess.only.daftarB)
                                         if (isLimit(sender)) return reply(botLangs.limitend(pusname))
-					reply(botLangs.wait())
+					reply(mess.wait)
 					n = JSON.parse(JSON.stringify(data));
 					nimek =  n[Math.floor(Math.random() * n.length)];
 					pok = await getBuffer(nimek)
@@ -1102,9 +1121,9 @@ async function starts() {
                                         tels = body.slice(11)
 					nzwa.updatePresence(from, Presence.composing) 
 					data = await fetchJson(`https://api.fdci.se/rep.php?gambar=${tels}`, {method: 'get'})
-                                        if (!isRegister) return reply(botLangs.daftarB(prefix))
+                                        if (!isRegister) return reply(mess.only.daftarB)
                                         if (isLimit(sender)) return reply(botLangs.limitend(pusname))
-					reply(botLangs.wait())
+					reply(mess.wait)
 					n = JSON.parse(JSON.stringify(data));
 					nimek =  n[Math.floor(Math.random() * n.length)];
 					pok = await getBuffer(nimek)
@@ -1119,7 +1138,7 @@ async function starts() {
 					reply(`Prefix berhasil di ubah menjadi : ${prefix}`)
 					break
 				case 'meme':
-                                        if (!isRegister) return reply(botLangs.daftarB(prefix))
+                                        if (!isRegister) return reply(mess.only.daftarB)
                                         if (isLimit(sender)) return reply(botLangs.limitend(pusname))
 					meme = await kagApi.memes()
 					buffer = await getBuffer(`https://imgur.com/${meme.hash}.jpg`)
@@ -1127,7 +1146,7 @@ async function starts() {
                                         await limitAdd(sender)
 					break
 				case 'memebotLangso':
-                                        if (!isRegister) return reply(botLangs.daftarB(prefix))
+                                        if (!isRegister) return reply(mess.only.daftarB)
                                         if (isLimit(sender)) return reply(botLangs.limitend(pusname))
 					memein = await kagApi.memebotLangso()
 					buffer = await getBuffer(`https://imgur.com/${memein.hash}.jpg`)
@@ -1136,7 +1155,7 @@ async function starts() {
 					break
 				case 'block':
 					nzwa.updatePresence(from, Presence.composing) 
-					if (!isGroup) return reply(langss.group())
+					if (!isGroup) return reply(mess.only.group)
 					if (!isOwner) return reply(botLangs.ownerB())
 					nzwa.blockUser (`${body.slice(8)}@c.us`, "add")
 					nzwa.sendMessage(from, `perintah Diterima, memblokir ${body.slice(8)}@c.us`, text)
@@ -1148,9 +1167,9 @@ async function starts() {
 					break
 				case 'tagall':
 				        nzwa.updatePresence(from, Presence.composing) 
-					if (!isGroup) return reply(langss.group())
-                                        if (!isRegister) return reply(botLangs.daftarB(prefix))
-					if (!isGroupAdmins) return reply(botLangs.admin())
+					if (!isGroup) return reply(mess.only.group)
+                                        if (!isRegister) return reply(mess.only.daftarB)
+					if (!isGroupAdmins) return reply(mess.only.admin)
 					members_id = []
 					teks = (args.length > 1) ? body.slice(8).trim() : ''
 					teks += `  Total : ${groupMembers.length}\n`
@@ -1162,8 +1181,8 @@ async function starts() {
 					break
                 case 'tagall2':
 				nzwa.updatePresence(from, Presence.composing) 
-					if (!isGroup) return reply(langss.group())
-					if (!isGroupAdmins) return reply(botLangs.admin())
+					if (!isGroup) return reply(mess.only.group)
+					if (!isGroupAdmins) return reply(mess.only.admin)
 					members_id = []
 					teks = (args.length > 1) ? body.slice(8).trim() : ''
 					teks += `  Total : ${groupMembers.length}\n`
@@ -1175,8 +1194,8 @@ async function starts() {
 					break
                 case 'tagall3':
 				nzwa.updatePresence(from, Presence.composing) 
-					if (!isGroup) return reply(langss.group())
-					if (!isGroupAdmins) return reply(botLangs.admin())
+					if (!isGroup) return reply(mess.only.group)
+					if (!isGroupAdmins) return reply(mess.only.admin)
 					members_id = []
 					teks = (args.length > 1) ? body.slice(8).trim() : ''
 					teks += `  Total : ${groupMembers.length}\n`
@@ -1188,8 +1207,8 @@ async function starts() {
 					break
                         case 'tagall4':
 				nzwa.updatePresence(from, Presence.composing) 
-					if (!isGroup) return reply(langss.group())
-					if (!isGroupAdmins) return reply(botLangs.admin())
+					if (!isGroup) return reply(mess.only.group)
+					if (!isGroupAdmins) return reply(mess.only.admin)
 					members_id = []
 					teks = (args.length > 1) ? body.slice(8).trim() : ''
 					teks += `  Total : ${groupMembers.length}\n`
@@ -1201,8 +1220,8 @@ async function starts() {
 					break
                 case 'tagall5':
 				nzwa.updatePresence(from, Presence.composing) 
-					if (!isGroup) return reply(langss.group())
-					if (!isGroupAdmins) return reply(botLangs.admin())
+					if (!isGroup) return reply(mess.only.group)
+					if (!isGroupAdmins) return reply(mess.only.admin)
 					members_id = []
 					teks = (args.length > 1) ? body.slice(8).trim() : ''
 					teks += `  Total : ${groupMembers.length}\n`
@@ -1219,7 +1238,7 @@ async function starts() {
 					nzwa.sendMessage(nomor+'@s.whatsapp.net', pesan, text)
 					break
 					case 'quotesnime':
-                                        if (!isRegister) return reply(botLangs.daftarB(prefix))
+                                        if (!isRegister) return reply(mess.only.daftarB)
                                         if (isLimit(sender)) return reply(botLangs.limitend(pusname))
 					nimek = await fetchJson('https://arugaz.my.id/api/anime/animequotes')
 					hasil = `*Anime* : ${nimek.data.anime}\n*Character* : ${nimek.data.character}\n*Quotes* : ${nimek.data.quote}`
@@ -1274,7 +1293,7 @@ async function starts() {
 					break
 				case 'alay':
                     nzwa.updatePresence(from, Presence.composing) 
-                    if (!isRsgister) return reply(botLangs.daftarB(prefix))
+                    if (!isRsgister) return reply(mess.only.daftarB)
                     if (isLimit(sender)) return reply(botLangs.limitend(pusname))
                     data = await fetchJson(`https://arugaz.my.id/api/edu/corona?country=botLangsonesia}`)
                     reply(data.result)
@@ -1282,7 +1301,7 @@ async function starts() {
                     break
                     case 'quotemaker':
                     gh = body.slice(12)
-                    if (!isRegister) return reply(botLangs.daftarB(prefix))
+                    if (!isRegister) return reply(mess.only.daftarB)
                     if (isLimit(sender)) return reply(botLangs.limitend(pusname))
                     teks1 = gh.split("|")[0];
                     teks2 = gh.split("|")[1];
@@ -1294,7 +1313,7 @@ async function starts() {
                     break
                     case 'glitch':
                     gh = body.slice(7)
-                    if (!isRegister) return reply(botLangs.daftarB(prefix))
+                    if (!isRegister) return reply(mess.only.daftarB)
                     if (isLimit(sender)) return reply(botLangs.limitend(pusname))
                     teks1 = gh.split("|")[0];
                     teks2 = gh.split("|")[1];
@@ -1304,8 +1323,8 @@ async function starts() {
                     await limitAdd(sender)
                     break
                      case 'leave':
-                    if (!isGroup) return reply(langss.group())
-                    if (!isGroupAdmins) return reply(botLangs.admin())
+                    if (!isGroup) return reply(mess.only.group)
+                    if (!isGroupAdmins) return reply(mess.only.admin)
                      setTimeout( () => {
 					nzwa.groupLeave (from) 
 					}, 2000)
@@ -1317,7 +1336,7 @@ async function starts() {
 
 				case 'chord':
 					if (args.length < 1) return reply('judul lagunya mana kak')
-                                        if (!isRegister) return reply(botLangs.daftarB(prefix))
+                                        if (!isRegister) return reply(mess.only.daftarB)
                                         if (isLimit(sender)) return reply(botLangs.limitend(pusname))
 					tels = body.slice(7)					
 					anu = await fetchJson(`https://arugaz.my.id/api/chord?q=${tels}`, {method: 'get'})
@@ -1326,7 +1345,7 @@ async function starts() {
 					break
 				case 'lirik':
 					if (args.length < 1) return reply('Nama lagunya apa kak?')
-                                        if (!isRegister) return reply(botLangs.daftarB(prefix))
+                                        if (!isRegister) return reply(mess.only.daftarB)
                                         if (isLimit(sender)) return reply(botLangs.limitend(pusname))
 					tels = body.slice(7)
 					anu = await fetchJson(`https://arugaz.my.id/api/lirik?judul=${tels}`, {method: 'get'})
@@ -1334,7 +1353,7 @@ async function starts() {
                                         await limitAdd(sender)
 					break
 			case 'igstalk':
-                      if (!isRegister) return reply(botLangs.daftarB(prefix))
+                      if (!isRegister) return reply(mess.only.daftarB)
                       if (isLimit(sender)) return reply(botLangs.limitend(pusname))
                       hmm = await fetchJson(`https://freerestapi.herokuapp.com/api/v1/igs?u=${body.slice(9)}`)
                      buffer = await getBuffer(hmm.data.profilehd)
@@ -1358,17 +1377,17 @@ async function starts() {
 					break
            case 'nekonime':
            data = await fetchJson('https://waifu.pics/api/sfw/neko')
-           if (!isRegister) return reply(botLangs.daftarB(prefix))
+           if (!isRegister) return reply(mess.only.daftarB)
            if (isLimit(sender)) return reply(botLangs.limitend(pusname))
            hasil = await getBuffer(data.url)
            nzwa.sendMessage(from, hasil, image, {quoted: mek})
            await limitAdd(sender)
            break
 				case 'neko':
-                                        if (!isRegister) return reply(botLangs.daftarB(prefix))
+                                        if (!isRegister) return reply(mess.only.daftarB)
                                         if (isLimit(sender)) return reply(botLangs.limitend(pusname))
 					gatauda = body.slice(6)
-					reply(botLangs.wait())
+					reply(mess.wait)
 					anu = await fetchJson(`https://tobz-api.herokuapp.com/api/nekonime?apikey=BotWeA`, {method: 'get'})
 					buffer = await getBuffer(anu.result)
 					nzwa.sendMessage(from, buffer, image, {quoted: mek})
@@ -1376,9 +1395,9 @@ async function starts() {
 					break	
 				case 'add':
 					nzwa.updatePresence(from, Presence.composing) 
-					if (!isGroup) return reply(langss.group())
-					if (!isGroupAdmins) return reply(botLangs.admin())
-					if (!isBotGroupAdmins) return reply(botLangs.Badmin())
+					if (!isGroup) return reply(mess.only.group)
+					if (!isGroupAdmins) return reply(mess.only.admin)
+					if (!isBotGroupAdmins) return reply(mess.only.Badmin)
 					if (args.length < 1) return reply('Yang mau di add jin ya?')
 					if (args[0].startsWith('08')) return reply('Gunakan kode negara mas')
 					try {
@@ -1392,9 +1411,9 @@ async function starts() {
 
 				case 'kick':
 					nzwa.updatePresence(from, Presence.composing) 
-					if (!isGroup) return reply(langss.group())
-					if (!isGroupAdmins) return reply(botLangs.admin())
-					if (!isBotGroupAdmins) return reply(botLangs.Badmin())
+					if (!isGroup) return reply(mess.only.group)
+					if (!isGroupAdmins) return reply(mess.only.admin)
+					if (!isBotGroupAdmins) return reply(mess.only.Badmin)
 					if (mek.message.extendedTextMessage === undefined || mek.message.extendedTextMessage === null) return reply('Tag target yang ingin di tendang!')
 					mentioned = mek.message.extendedTextMessage.contextInfo.mentionedJid
 					if (mentioned.length > 1) {
@@ -1425,15 +1444,15 @@ async function starts() {
 				case 'linkgrup':
 				case 'linkgc':
 				    nzwa.updatePresence(from, Presence.composing) 
-				    if (!isGroup) return reply(langss.group())
-                                     if (!isRegister) return reply(botLangs.daftarB(prefix))
-					if (!isBotGroupAdmins) return reply(botLangs.Badmin())
+				    if (!isGroup) return reply(mess.only.group)
+                                     if (!isRegister) return reply(mess.only.daftarB)
+					if (!isBotGroupAdmins) return reply(mess.only.Badmin)
 					linkgc = await nzwa.groupInviteCode (from)
 					yeh = `https://chat.whatsapp.com/${linkgc}\n\nLink Group *${groupName}*`
 					nzwa.sendMessage(from, yeh, text, {quoted: mek, detectLinks: false})
 					break
                 case 'qrcode':
-                if (!isRegister) return reply(botLangs.daftarB(prefix))
+                if (!isRegister) return reply(mess.only.daftarB)
                 if (isLimit(sender)) return reply(botLangs.limitend(pusname))
                 buff = await getBuffer(`https://api.qrserver.com/v1/create-qr-code/?data=${body.slice(8)}&size=1080%C3%971080`)
 				nzwa.sendMessage(from, buff, image, {quoted: mek})
@@ -1443,7 +1462,7 @@ async function starts() {
 					if ((isMedia && !mek.message.videoMessage || isQuotedImage) && args.length == 0) {
 						const encmedia = isQuotedImage ? JSON.parse(JSON.stringify(mek).replace('quotedM','m')).message.extendedTextMessage.contextInfo : mek
 						const media = await nzwa.downloadAndSaveMediaMessage(encmedia)
-						reply(botLangs.wait())
+						reply(mess.wait)
 						await recognize(media, {lang: 'eng+botLangs', oem: 1, psm: 3})
 							.then(teks => {
 								reply(teks.trim())
@@ -1480,7 +1499,7 @@ async function starts() {
 			   break
               case 'bisakah':
                 nzwa.updatePresence(from, Presence.composing) 
-              if (!isRegister) return reply(botLangs.daftarB(prefix))
+              if (!isRegister) return reply(mess.only.daftarB)
                 random = bisakah[Math.floor(Math.random() * (bisakah.length))]
   	
 			   hasil = `Pertanyaan : *${body.slice(1)}*\n\nJawaban : *${random}*`
@@ -1488,14 +1507,14 @@ async function starts() {
 			   break
                case 'rate':
               nzwa.updatePresence(from, Presence.composing) 
-              if (!isRegister) return reply(botLangs.daftarB(prefix))
+              if (!isRegister) return reply(mess.only.daftarB)
                 random = `${Math.floor(Math.random() * 100)}`
                hasil = `Pertanyaan : *${body.slice(1)}*\n\nJawaban : *${random}%*`
               reply(hasil)
                 break
 	    case 'kapankah':
                nzwa.updatePresence(from, Presence.composing) 
-                if (!isRegister) return reply(botLangs.daftarB(prefix))
+                if (!isRegister) return reply(mess.only.daftarB)
                random = kapankah[Math.floor(Math.random() * (kapankah.length))]
                random2 = `${Math.floor(Math.random() * 8)}`
                hasil = `Pertanyaan : *${body.slice(1)}*\n\nJawaban : *${random2} ${random}*`
@@ -1503,9 +1522,9 @@ async function starts() {
                 break
 			case 'closegc':
 					nzwa.updatePresence(from, Presence.composing) 
-					if (!isGroup) return reply(langss.group())
-					if (!isGroupAdmins) return reply(botLangs.admin())
-					if (!isBotGroupAdmins) return reply(botLangs.Badmin())
+					if (!isGroup) return reply(mess.only.group)
+					if (!isGroupAdmins) return reply(mess.only.admin)
+					if (!isBotGroupAdmins) return reply(mess.only.Badmin)
 					var nomor = mek.participant
 					const close = {
 					text: `Grup ditutup oleh admin @${nomor.split("@s.whatsapp.net")[0]}\nsekarang *hanya admin* yang dapat mengirim pesan`,
@@ -1517,9 +1536,9 @@ async function starts() {
                 case 'opengc':
                 case 'bukagc':
 					nzwa.updatePresence(from, Presence.composing) 
-					if (!isGroup) return reply(langss.group())
-					if (!isGroupAdmins) return reply(botLangs.admin())
-					if (!isBotGroupAdmins) return reply(botLangs.Badmin())
+					if (!isGroup) return reply(mess.only.group)
+					if (!isGroupAdmins) return reply(mess.only.admin)
+					if (!isBotGroupAdmins) return reply(mess.only.Badmin)
 					open = {
 					text: `Grup dibuka oleh admin @${sender.split("@")[0]}\nsekarang *semua peserta* dapat mengirim pesan`,
 					contextInfo: { mentionedJid: [sender] }
@@ -1534,7 +1553,7 @@ async function starts() {
 					if ((isMedia && !mek.message.videoMessage || isQuotedImage) && args.length == 0) {
 						const encmedia = isQuotedImage ? JSON.parse(JSON.stringify(mek).replace('quotedM','m')).message.extendedTextMessage.contextInfo : mek
 						const media = await nzwa.downloadAndSaveMediaMessage(encmedia)
-                                                if (!isRegister) return reply(botLangs.daftarB(prefix))
+                                                if (!isRegister) return reply(mess.only.daftarB)
                                                 if (isLimit(sender)) return reply(botLangs.limitend(pusname))
 						ran = getRandom('.webp')
 						await ffmpeg(`./${media}`)
@@ -1545,7 +1564,7 @@ async function starts() {
 							.on('error', function (err) {
 								console.log(`Error : ${err}`)
 								fs.unlinkSync(media)
-								reply(botLangs.stick())
+								reply(mess.error.stick)
 							})
 							.on('end', function () {
 								console.log('Finish')
@@ -1560,7 +1579,7 @@ async function starts() {
 						const encmedia = isQuotedVideo ? JSON.parse(JSON.stringify(mek).replace('quotedM','m')).message.extendedTextMessage.contextInfo : mek
 						const media = await nzwa.downloadAndSaveMediaMessage(encmedia)
 						ran = getRandom('.webp')
-						reply(botLangs.wait())
+						reply(mess.wait)
 						await ffmpeg(`./${media}`)
 							.inputFormat(media.split('.')[1])
 							.on('start', function (cmd) {
@@ -1589,11 +1608,11 @@ async function starts() {
 					ranp = getRandom('.gif')
 					rano = getRandom('.webp')
 					anu = await fetchJson('https://tobz-api.herokuapp.com/api/hug&apikey=BotWeA', {method: 'get'})
-                                        if (!isRegister) return reply(botLangs.daftarB(prefix))
+                                        if (!isRegister) return reply(mess.only.daftarB)
 					if (anu.error) return reply(anu.error)
 					exec(`wget ${anu.result} -O ${ranp} && ffmpeg -i ${ranp} -vcodec libwebp -filter:v fps=fps=15 -lossless 1 -loop 0 -preset default -an -vsync 0 -s 512:512 ${rano}`, (err) => {
 						fs.unlinkSync(ranp)
-						if (err) return reply(botLangs.stick())
+						if (err) return reply(mess.error.stick)
 						buffer = fs.readFileSync(rano)
 						nzwa.sendMessage(from, buffer, sticker, {quoted: mek})
 						fs.unlinkSync(rano)
@@ -1602,9 +1621,9 @@ async function starts() {
 
 				case 'toimg':
 				    nzwa.updatePresence(from, Presence.composing)
-                                    if (!isRegister) return reply(botLangs.daftarB(prefix))
+                                    if (!isRegister) return reply(mess.only.daftarB)
 					if (!isQuotedSticker) return reply('âŒ reply stickernya um âŒ')
-					reply(botLangs.wait())
+					reply(mess.wait)
 					encmedia = JSON.parse(JSON.stringify(mek).replace('quotedM','m')).message.extendedTextMessage.contextInfo
 					media = await nzwa.downloadAndSaveMediaMessage(encmedia)
 					ran = getRandom('.png')
@@ -1618,9 +1637,9 @@ async function starts() {
 					break
                 	case 'tomp3':
                 	nzwa.updatePresence(from, Presence.composing) 
-                        if (!isRegister) return reply(botLangs.daftarB(prefix))
+                        if (!isRegister) return reply(mess.only.daftarB)
 					if (!isQuotedVideo) return reply('âŒ reply videonya um âŒ')
-					reply(botLangs.wait())
+					reply(mess.wait)
 					encmedia = JSON.parse(JSON.stringify(mek).replace('quotedM','m')).message.extendedTextMessage.contextInfo
 					media = await nzwa.downloadAndSaveMediaMessage(encmedia)
 					ran = getRandom('.mp4')
@@ -1635,21 +1654,21 @@ async function starts() {
 
                 case 'ninjalogo':
                       if (args.length < 1) return reply('Teks nya mana?')
-                      if (!isRegister) return reply(botLangs.daftarB(prefix))
+                      if (!isRegister) return reply(mess.only.daftarB)
                       if (isLimit(sender)) return reply(botLangs.limitend(pusname))
                       gh = body.slice(11)
                       gl1 = gh.split("|")[0];
                       gl2 = gh.split("|")[1];
-                      reply(botLangs.wait())
+                      reply(mess.wait)
                       anu = await fetchJson(`https://tobz-api.herokuapp.com/api/textpro?theme=ninjalogo&text1=${gl1}&text2=${gl2}&apikey=BotWeA`, {method: 'get'})
                       buff = await getBuffer(anu.result)
                       nzwa.sendMessage(from, buff, image, {quoted: mek})
                       await limitAdd(sender)
                       break
                          case 'play':   
-	          if (!isRegister) return reply(botLangs.daftarB(prefix))
+	          if (!isRegister) return reply(mess.only.daftarB)
                   if (isLimit(sender)) return reply(botLangs.limitend(pusname))
-                reply(botLangs.wait())
+                reply(mess.wait)
                 play = body.slice(5)
                 anu = await fetchJson(`https://api.zeks.xyz/api/ytplaymp3?q=${play}&apikey=apivinz`)
                if (anu.error) return reply(anu.error)
@@ -1663,7 +1682,7 @@ async function starts() {
                      case 'infocuaca':
                    tels = body.slice(11)
                    anu = await fetchJson(`https://tobz-api.herokuapp.com/api/cuaca?wilayah=${tels}&apikey=BotWeA`, {method: 'get'})
-                   if (!isRegister) return reply(botLangs.daftarB(prefix))
+                   if (!isRegister) return reply(mess.only.daftarB)
                    if (isLimit(sender)) return reply(botLangs.limitend(pusname))
                    if (anu.error) return reply(anu.error)
                    hasil = ` *Tempat : ${anu.tempat}\nCuaca : ${anu.cuaca}\nAngin : ${anu.angin}\nSuhu : ${anu.suhu}\nKelembapan : ${anu.kelembapan}`
@@ -1672,7 +1691,7 @@ async function starts() {
                    break
                               case 'game':
 					anu = await fetchJson(`http://rt-files.000webhostapp.com/tts.php?apikey=rasitech`, {method: 'get'})
-                                        if (!isUser) return reply(botLangs.daftarB(prefix))
+                                        if (!isUser) return reply(mess.only.daftarB)
 					setTimeout( () => {
 					nzwa.sendMessage(from, '*❑ Jawaban :* '+anu.result.jawaban+'\n'+anu.result.desk, text, {quoted: mek}) // ur cods
 					}, 30000) // 1000 = 1s,
@@ -1690,9 +1709,9 @@ async function starts() {
 					}, 0) // 1000 = 1s,
 					break
                                 case 'welcome':
-					if (!isGroup) return reply(langss.group())
-                                        if (!isRegister) return reply(botLangs.daftarB(prefix))
-					if (!isGroupAdmins) return reply(botLangs.Badmin())
+					if (!isGroup) return reply(mess.only.group)
+                                        if (!isRegister) return reply(mess.only.daftarB)
+					if (!isGroupAdmins) return reply(mess.only.Badmin)
 					if (args.length < 1) return reply('ketik 1 untuk mengaktifkan')
 					if (Number(args[0]) === 1) {
 						if (isWelkom) return reply('fitur sudah aktif')
@@ -1709,7 +1728,7 @@ async function starts() {
                                         break
                                 case 'fakta':
 					fakta = body.slice(1)
-                                        if (!isRegister) return reply(botLangs.daftarB(prefix))
+                                        if (!isRegister) return reply(mess.only.daftarB)
                                         if (isLimit(sender)) return reply(botLangs.limitend(pusname))
 					const fakta =['Massa bumi mencapai 5.972.190.000.000.000.000.000.000 kg. Mesekipun sedemikian berat, faktanya bumi memiliki kecepatan 107.281 km per jam untuk mengitari matahari. Cepat sekali, bukan?','Massa berat bumi didominasi debu-debu antariksa dan dapat berkurang akibat gas seperti hidrogen yang berkurang tiga kilogram setiap detiknya. Fakta unik ini menunjukkan bahwa bumi akan kehilangan 95 ribu ton massa setiap tahunnya','Pada 2018 populasi manusia diperkirakan mencapai 7,6 miliar orang. Meskipun bumi dipenuhi manusia, fakta unik mengungkapkan bahwa manusia tidak memengaruhi massa bumi. Hal ini dikarenakan manusia terbentuk dari atom dalam bentuk oksigen 65 persen, karbon 18,5 persen, dan hidrogen 9,5 persen.','bumi dipenuhi oleh 70 persen air sehingga kerap wajar jika bumi disebut dengan nama planet air. Lautan bumi yang paling dalam adalah Palung Mariana dengan kedalaman 10.994 meter di bawah air. Fakta unik dibalik Palung Mariana adalah jika kamu meletakkan Gunung Everest di sana, puncak tertingginya bahkan masih berada di bawah permukaan laut sejauh 1,6 kilometer!','Faktanya bumi yang manusia tinggali hanya satu persen bagian dari keseluruhan planet bumi. Fakta unik ini menunjukkan bahwa masih banyak bagian bumi yang memiliki misteri kehidupan. Tertarik melakukan penjelajahan untuk menguak misteri sekaligus fakta unik di bagian bumi lainnya','Terdapat sebuah kota di Rusia yang jalanannya tertata rapi dengan sebuah istana yang didesain seperti catur yang megah. Pembuatan pemukiman tersebut didalangi oleh presiden yang terobsesi dengan catur bernama Kirsan Ilyumzhinov.','Apakah kamu tahu fakta unik mengenai mozzarella yang dibuat dari susu kerbau dan bukan susu sapi? Sekitar 500 tahun yang lalu di Campania, Italia, mozzarella dibuat pertama kali menggunakan susu kerbau. Fakta unik dibalik penggunaan susu kerbau ini karena kandungan protein susu kerbau 10-11% lebih banyak daripada susu sapi.','Bali memiliki fakta unik karena memliki banyak hari libur yang disumbangkan oleh sejumlah hari raya besar keagamaan. Hampir setiap hari besar keagamaan ini setiap orang akan mendapatkan libur. Beberapa hai libur diantaranya adalah hari raya galungan, kuningan, nyepi, pagerwesi, saraswati, dan sejumlah upacara besar lainnya seperti piodalan (pujawali).','Ibukota Jakarta memiliki banyak pesona juga fakta unik yang mungkin belum kamu ketahui. Sebelum diberi nama Jakarta, Ibukota botLangsonesia ini telah memiliki beberapa kali perubahan nama. Nama Ibukota botLangsonesia sesuai urutan perubahannya diantaranya adalah Sunda Kelapa, Jayakarta, Batavia, Betawi, Jacatra, Jayakarta, dan Jakarta.','Pada tahun 1952 jendela pesawat didesain dalam bentuk persegi namun penggunaannya dinilai cacat sehingga tidak  diterapkan kembali. Jendela yang bulat dirancang untuk menyiasati perbedaan tekanan udara dalam dan luar pesawat untuk menghbotLangsari kegagalan struktural yang dapat menyebabkan kecelakaan pesawat.','Makanan utama dari nyamuk jantan dan betina pada umumnya adalah nektar dan zat manis yang sebagian besar diperoleh dari tanaman. Namun nyamuk membutuhkan protein tambahan unuk bertelur yang bisa didapatkan dari manusia sedangkan nyamuk jantan tidak membutuhkan zat protein tambahan untuk bertelur.','Jembatan suramadu (surabaya-madura) adalah jembatan terpanjang di Asia Tenggara (5438 m).','Tertawa dan bahagia meningkatkan imun, terutama produksi sel-sel pembunuh alamiah yang membantu melbotLangsungi tubuh dari penyakit','Kecoa kentut setiap 15 menit dan terus mengeluarkan gas metana (kentut) selama 18 jam setelah kematian.','Mengoleskan jeruk nipis dapat mencerahkan bagian lutut / siku yang hitam.','Energi yang dihasilkan oleh angin ribut (topan) selama 10 menit lebih besar dibandingkan energi dari bom saat perang','Satu-satunya botLangsera manusia yang tidak berfungsi saat tidur adalah botLangsera penciuman.','Para astronot dilarang makan makanan berjenis kacang-kacangan sebelum pergi ke luar angkasa. Karena bisa menyebabkan mereka mudah kentut. Dan gas kentut sangat membahayakan bagi baju luar angkasa mereka.','Di AS saja, kucing membunuh miliaran hewan dalam kurun waktu setahun. Mereka bertanggung jawab atas kematian 1,4 - 73,7 miliar burung dan 6,9 - 20,7 miliar mamalia setiap tahun. Bukan hanya itu, sejauh ini mereka benar-benar memusnahkan total 33 spesies dari dunia.','Ikan hiu kehilangan gigi lebih dari 6000buah setiap tahun, dan gigi barunya tumbuh dalam waktu 24 jam.','Semut dapat mengangkat Beban 50 kali tubuhnya.','Mulut menghasilkan 1 liter ludah setiap hari.','Siput bisa tidur selama 3 tahun','Kecoak bisa hidup 9 hari tanpa kepala, dan akan mati karena kelaparan','Mata burung unta lebih besar dari otaknya']
 					const keh = fakta[Math.floor(Math.random() * fakta.length)]
@@ -1718,11 +1737,11 @@ async function starts() {
 					break
                                 case 'water':
 					if (args.length < 1) return reply(mess.blank)
-                                        if (!isRegister) return reply(botLangs.daftarB(prefix))
+                                        if (!isRegister) return reply(mess.only.daftarB)
                                         if (isLimit(sender)) return reply(botLangs.limitend(pusname))
 					tels = body.slice(7)
 					if (tels.length > 15) return reply('Teksnya kepanjangan, maksimal 20 karakter')
-					reply(botLangs.wait())
+					reply(mess.wait)
 					anu = await fetchJson(`https://kocakz.herokuapp.com/api/flamingtext/water?text=${tels}`, {method: 'get'})
 					buffer = await getBuffer(anu.result)
 					nzwa.sendMessage(from, buffer, image, {quoted: mek})
@@ -1730,32 +1749,32 @@ async function starts() {
 					break
 				case 'firetext':
 					if (args.length < 1) return reply(mess.blank)
-                                        if (!isRegister) return reply(botLangs.daftarB(prefix))
+                                        if (!isRegister) return reply(mess.only.daftarB)
                                         if (isLimit(sender)) return reply(botLangs.limitend(pusname))
 					tels = body.slice(7)
 					if (tels.ength > 10) return reply('Teksnya kepanjangan, maksimal 9 karakter')
-					reply(botLangs.wait())
+					reply(mess.wait)
 					anu = await fetchJson(`https://zeksapi.herokuapp.com/api/tlight?text=${tels}&apikey=vinzapi`, {method: 'get'})
 					buff = await getBuffer(anu.result)
 					nzwa.sendMessage(from, buff, image, {quoted: mek})
                                         await limitAdd(sender)
 					break
                                 case 'gantengcek':
-					if (isRegister) return reply(botLangs.daftarB(prefix))
+					if (isRegister) return reply(mess.only.daftarB)
 					ganteng = body.slice(1)
 					const gan =['10','30','20','40','50','60','70','62','74','83','97','100','29','94','75','82','41','39']
 					const teng = gan[Math.floor(Math.random() * gan.length)]
 					nzwa.sendMessage(from, 'Pertanyaan : *'+ganteng+'*\n\nJawaban : '+ teng+'%', text, { quoted: mek })
 					break
 					case 'cantikcek':
-					if (isRegister) return reply(botLangs.daftarB(prefix))
+					if (isRegister) return reply(mess.only.daftarB)
 					cantik = body.slice(1)
 					const can =['10','30','20','40','50','60','70','62','74','83','97','100','29','94','75','82','41','39']
 					const tik = can[Math.floor(Math.random() * can.length)]
 					nzwa.sendMessage(from, 'Pertanyaan : *'+cantik+'*\n\nJawaban : '+ tik+'%', text, { quoted: mek })
 					break
 				case 'watak':
-				if (isRegister) return reply(botLangs.daftarB(prefix))
+				if (isRegister) return reply(mess.only.daftarB)
                                 if (isLimit(sender)) return reply(botLangs.limitend(pusname))
 					watak = body.slice(1)
 					const wa =['peny ayang','pem urah','Pem arah','Pem aaf','Pen urut','Ba ik','bap eran','Baik Hati','peny abar','Uw u','top deh, poko knya','Suka Memb antu']
@@ -1764,7 +1783,7 @@ async function starts() {
                                         await limitAdd(sender)
 				    break
 				case 'hobby':
-				if (isRegister) return reply(botLangs.daftarB(prefix))
+				if (isRegister) return reply(mess.only.daftarB)
 					hobby = body.slice(1)
 					const hob =['Memasak','Membantu Atok','Mabar','Nobar','Sosmedtan','Membantu Orang lain','Nonton Anime','Nonton Drakor','Naik Motor','Nyanyi','Menari','Bertumbuk','Menggambar','Foto fotoan Ga jelas','Maen Game','Berbicara Sendiri']
 					const by = hob[Math.floor(Math.random() * hob.length)]
@@ -1773,7 +1792,7 @@ async function starts() {
                                 case 'nsfwneko':
 				    try{
 						if (!isNsfw) return reply('âŒ *NSFW MATI* âŒ')
-                                                if (!isRegister) return reply(botLangs.daftarB(prefix))
+                                                if (!isRegister) return reply(mess.only.daftarB)
                                                 if (isLimit(sender)) return reply(botLangs.limitend(pusname))
 						res = await fetchJson(`https://tobz-api.herokuapp.com/api/nsfwneko?apikey=BotWeA`, {method: 'get'})
 						buffer = await getBuffer(res.result)
@@ -1788,7 +1807,7 @@ async function starts() {
 				    try{
 						res = await fetchJson(`https://tobz-api.herokuapp.com/api/randomshota?apikey=BotWeA`, {method: 'get'})
 						buffer = await getBuffer(res.result)
-                                                if (!isRegister) return reply(botLangs.daftarB(prefix))
+                                                if (!isRegister) return reply(mess.only.daftarB)
                                                 if (isLimit(sender)) return reply(botLangs.limitend(pusname))
 						nzwa.sendMessage(from, buffer, image, {quoted: mek, caption: 'Nich'})
                                                 await limitAdd(sender)
@@ -1802,17 +1821,17 @@ async function starts() {
 					var teks1 = gh.split("|")[0];
 					var teks2 = gh.split("|")[1];
 					if (args.length < 1) return reply(`teksnya mana? contoh ${prefix}logowolf Nazwa|Canss`)
-                                        if (!isRegister) return reply(botLangs.daftarB(prefix))
+                                        if (!isRegister) return reply(mess.only.daftarB)
                                         if (isLimit(sender)) return reply(botLangs.limitend(pusname))
-					reply(botLangs.wait())
+					reply(mess.wait)
 					anu = await fetchJson(`https://tobz-api.herokuapp.com/api/textpro?theme=wolflogo1&text1=${teks1}&text2=${teks2}&apikey=BotWeA`, {method: 'get'})
 					buffer = await getBuffer(anu.result)
 					nzwa.sendMessage(from, buffer, image, {quoted: mek})
                                         await limitAdd(sender)
 					break				
                                  case 'nsfw':
-					if (!isGroup) return reply(langss.group())
-					if (!isGroupAdmins) return reply(botLangs.admin())
+					if (!isGroup) return reply(mess.only.group)
+					if (!isGroupAdmins) return reply(mess.only.admin)
 					if (args.length < 1) return reply('ketik 1 untuk mengaktifkan')
 					if (Number(args[0]) === 1) {
 						if (isNsfw) return reply('fitur sudah aktif')
@@ -1828,7 +1847,7 @@ async function starts() {
 					}
 					break	
 				case 'quotes2':
-                                        if (!isRegister) return reply(botLangs.daftarB(prefix))
+                                        if (!isRegister) return reply(mess.only.daftarB)
                                         if (isLimit(sender)) return reply(botLangs.limitend(pusname))
 					gatauda = body.slice(8)					
 					anu = await fetchJson(`https://arugaz.my.id/api/random/text/quotes`, {method: 'get'})
@@ -1837,8 +1856,8 @@ async function starts() {
 					break		
 			    case 'waifu':
 					gatauda = body.slice(7)
-					reply(botLangs.wait())
-                                        if (!isRegister) return reply(botLangs.daftarB(prefix))
+					reply(mess.wait)
+                                        if (!isRegister) return reply(mess.only.daftarB)
                                         if (isLimit(sender)) return reply(botLangs.limitend(pusname))
 					anu = await fetchJson(`https://arugaz.my.id/api/nekonime`, {method: 'get'})
 					buffer = await getBuffer(anu.result)
@@ -1847,8 +1866,8 @@ async function starts() {
 					break
 				case 'randomanime':
 					gatauda = body.slice(13)
-					reply(botLangs.wait())
-                                        if (!isRegister) return reply(botLangs.daftarB(prefix))
+					reply(mess.wait)
+                                        if (!isRegister) return reply(mess.only.daftarB)
                                         if (isLimit(sender)) return reply(botLangs.limitend(pusname))
 					anu = await fetchJson(`https://tobz-api.herokuapp.com/api/randomanime?apikey=BotWeA`, {method: 'get'})
 					buffer = await getBuffer(anu.result)
@@ -1857,8 +1876,8 @@ async function starts() {
 					break						
                                 case 'husbu':
                                         gatauda = body.slice(13)
-					reply(botLangs.wait())
-                                        if (!isRegister) return reply(botLangs.daftarB(prefix))
+					reply(mess.wait)
+                                        if (!isRegister) return reply(mess.only.daftarB)
                                         if (isLimit(sender)) return reply(botLangs.limitend(pusname))
 					anu = await fetchJson(`https://tobz-api.herokuapp.com/api/husbu?apikey=BotWeA`, {method: 'get'})
 					buffer = await getBuffer(anu.result)
@@ -1867,8 +1886,8 @@ async function starts() {
 					break
 				case 'husbu2':
 					gatauda = body.slice(13)
-					reply(botLangs.wait())
-                                        if (!isRegister) return reply(botLangs.daftarB(prefix))
+					reply(mess.wait)
+                                        if (!isRegister) return reply(mess.only.daftarB)
                                         if (isLimit(sender)) return reply(botLangs.limitend(pusname))
 					anu = await fetchJson(`https://tobz-api.herokuapp.com/api/husbu2?apikey=BotWeA`, {method: 'get'})
 					buffer = await getBuffer(anu.result)
@@ -1880,9 +1899,9 @@ async function starts() {
 					var teks1 = gh.split("|")[0];
 					var teks2 = gh.split("|")[1];
 					if (args.length < 1) return reply(`teksnya mana? contoh ${prefix}logowolf Nazwa|Canss`)
-                                        if (!isRegister) return reply(botLangs.daftarB(prefix))
+                                        if (!isRegister) return reply(mess.only.daftarB)
                                         if (isLimit(sender)) return reply(botLangs.limitend(pusname))
-					reply(botLangs.wait())
+					reply(mess.wait)
 					anu = await fetchJson(`https://tobz-api.herokuapp.com/api/textpro?theme=wolflogo2&text1=${teks1}&text2=${teks2}&apikey=BotWeA`, {method: 'get'})
 					buffer = await getBuffer(anu.result)
 					nzwa.sendMessage(from, buffer, image, {quoted: mek})
@@ -1890,9 +1909,9 @@ async function starts() {
 					break	
                                 case 'delete':
 					case 'del':
-					if (!isGroup)return reply(langss.group())
-                                        if (!isRegister) return reply(botLangs.daftarB(prefix))
-					if (!isGroupAdmins)return reply(botLangs.admin())
+					if (!isGroup)return reply(mess.only.group)
+                                        if (!isRegister) return reply(mess.only.daftarB)
+					if (!isGroupAdmins)return reply(mess.only.admin)
 					nzwa.deleteMessage(from, { id: mek.message.extendedTextMessage.contextInfo.stanzaId, remoteJid: from, fromMe: true })
 					break
                                 case 'phlogo':
@@ -1900,9 +1919,9 @@ async function starts() {
 					var gbl1 = gh.split("|")[0];
 					var gbl2 = gh.split("|")[1];
 					if (args.length < 1) return reply('Teksnya mana um\nContoh: ${prefix}phlogo |Nazwa|Canss')
-                                        if (!isRegister) return reply(botLangs.daftarB(prefix))
+                                        if (!isRegister) return reply(mess.only.daftarB)
                                         if (isLimit(sender)) return reply(botLangs.limitend(pusname))
-					reply(botLangs.wait())
+					reply(mess.wait)
 					anu = await fetchJson(`https://mhankbarbars.herokuapp.com/api/textpro?theme=pornhub&text1=${gbl1}&text2=${gbl2}`, {method: 'get'})
 					buffer = await getBuffer(anu.result)
 					nzwa.sendMessage(from, buffer, image, {quoted: mek})
@@ -1921,11 +1940,11 @@ async function starts() {
 					nzwa.sendMessage(from, tod, image, { quoted: mek, caption: '*Dare*\n\n'+ der })
 					break	
                 case 'level':
-                if (!isLevelingOn) return reply(botLangs.levelnoton())
-                if (!isGroup) return reply(langss.group())
+                if (!isLevelingOn) return reply(mess.levelnoton)
+                if (!isGroup) return reply(mess.only.group)
                 const userLevel = getLevelingLevel(sender)
                 const userXp = getLevelingXp(sender)
-                if (userLevel === undefined && userXp === undefined) return reply(botLangs.levelnol())
+                if (userLevel === undefined && userXp === undefined) return reply(mess.levelnol)
                 sem = sender.replace('@s.whatsapp.net','')
                 resul = `◪ *LEVEL*\n  ├❑ *Name* : ${sem}\n  ├❑ *User XP* : ${userXp}\n  └❑ *User Level* : ${userLevel}`
                nzwa.sendMessage(from, resul, text, { quoted: mek})
@@ -1944,14 +1963,14 @@ async function starts() {
 					nzwa.sendMessage(from, `${bot}`, text, {quoted: { key: { fromMe: false, participant: `${mentioned}`, ...(from ? { remoteJid: from } : {}) }, message: { conversation: `${target}` }}})
 					break
             case 'leveling':
-                if (!isGroup) return reply(langss.group())
-                if (!isGroupAdmins) return reply(botLangs.admin())
+                if (!isGroup) return reply(mess.only.group)
+                if (!isGroupAdmins) return reply(mess.only.admin)
                 if (args.length < 1) return reply('Ketik 1 untuk mengaktifkan fitur')
                 if (args[0] === '1') {
                     if (isLevelingOn) return reply('*fitur level sudah aktif sebelum nya*')
                     _leveling.push(groupId)
                     fs.writeFileSync('./database/json/leveling.json', JSON.stringify(_leveling))
-                     reply(botLangs.levelon())
+                     reply(mess.levelon)
                 } else if (args[0] === '0') {
                     _leveling.splice(groupId, 1)
                     fs.writeFileSync('./database/json/leveling.json', JSON.stringify(_leveling))
@@ -1962,7 +1981,7 @@ async function starts() {
             break
                                 case 'infogempa':
                                         anu = await fetchJson(`https://tobz-api.herokuapp.com/api/infogempa?apikey=BotWeA`, {method: 'get'})
-                                        if (!isRegister) return reply(botLangs.daftarB(prefix))
+                                        if (!isRegister) return reply(mess.only.daftarB)
                                         if (isLimit(sender)) return reply(botLangs.limitend(pusname))
                                         if (anu.error) return reply(anu.error)
                                         hasil = `*Kedalaman* : ${anu.kedalaman}\n*Koordinat* : ${anu.koordinat}\n*Lokasi* : ${anu.lokasi}\n*Magnitude* : ${anu.magnitude}\n*Map* : ${anu.map}\n*Potensi* : ${anu.potensi}\n*Waktu* : ${anu.waktu}`
@@ -1972,7 +1991,7 @@ async function starts() {
                                 case 'nsfwtrap':
                                         try{
                                                 if (!isNsfw) return reply('âŒ *NSFW MATI* âŒ')
-                                                if (!isRegister) return reply(botLangs.daftarB(prefix))
+                                                if (!isRegister) return reply(mess.only.daftarB)
                                                 if (isLimit(sender)) return reply(botLangs.limitend(pusname))
                                                 res = await fetchJson(`https://tobz-api.herokuapp.com/nsfwtrap?apikey=BotWeA`, {method: 'get'})
                                                 buffer = await getBuffer(res.result)
@@ -1995,9 +2014,9 @@ async function starts() {
                                         var gh = body.slice(9)
                                         var teks1 = gh.split("|")[0];
                                         if (args.length < 1) return reply('teksnya mana um\nContoh: ${prefix}neonlogo NazwaCanss')
-                                        if (!isRegister) return reply(botLangs.daftarB(prefix))
+                                        if (!isRegister) return reply(mess.only.daftarB)
                                         if (isLimit(sender)) return reply(botLangs.limitend(pusname))
-                                        reply(botLangs.wait())
+                                        reply(mess.wait)
                                         anu = await fetchJson(`https://tobz-api.herokuapp.com/api/textpro?theme=neon_light&text=${teks1}&apikey=BotWeA`, {method: 'get'})
                                         buffer = await getBuffer(anu.result)
                                         nzwa.sendMessage(from, buffer, image, {quoted: mek, caption: 'Nih kak logonya...'})
@@ -2007,9 +2026,9 @@ async function starts() {
                                         var gh = body.slice(10)
                                         teks1 = gh.split("|")[0];
                                         if (args.length < 1) return reply('teksnya mana um\nContoh: ${prefix}neonlogo2 NazwaCanss')
-                                        if (!isRegister) return reply(botLangs.daftarB(prefix))
+                                        if (!isRegister) return reply(mess.only.daftarB)
                                         if (isLimit(sender)) return reply(botLangs.limitend(pusname))
-                                        reply(botLangs.wait())
+                                        reply(mess.wait)
                                         anu = await fetchJson(`https://tobz-api.herokuapp.com/api/textpro?theme=neon_technology&text=${text1}&apikey=BotWeA`, {method: 'get'})
                                         buffer = await getBuffer(anu.result)
                                         nzwa.sendMessage(from, buffer, image, {quoted: mek, caption: 'Nih kak logonya...'})
@@ -2020,9 +2039,9 @@ async function starts() {
                                         var teks1 = gh.split("|")[0];
                                         var teks2 = gh.split("|")[1];
                                         if (args.length < 1) return reply('teksnya mana um\nContoh: ${prefix}lionlogo Nazwa|Canss')
-                                        if (!isRegister) return reply(botLangs.daftarB(prefix))
+                                        if (!isRegister) return reply(mess.only.daftarB)
                                         if (isLimit(sender)) return reply(botLangs.limitend(pusname))
-                                        reply(botLangs.wait())
+                                        reply(mess.wait)
                                         anu = await fetchJson(`https://tobz-api.herokuapp.com/api/textpro?theme=lionlogo&text1=${text1}&text2=${teks2}&apikey=BotWeA`, {method: 'get'})
                                         buffer = await getBuffer(anu.result)
                                         nzwa.sendMessage(from, buffer, image, {quoted: mek, caption: 'Nih kak logonya...'})
@@ -2030,7 +2049,7 @@ async function starts() {
                                         break
                                 case 'jsholat':
                                         loc = body.slice(8)
-                                        if (!isRegister) return reply(botLangs.daftarB(prefix))
+                                        if (!isRegister) return reply(mess.only.daftarB)
                                         if (args.length < 1) return reply('Daerahnya dimana kak?')
                                         anu = await fetchJson(`https://mhankbarbar.tech/api/jadwalshalat?daerah=${loc}&apiKey=${BarBarKey}`, {method: 'get'})
                                         mbteks = `◪ *JAM SHALAT* \n  │\n  ├❑ Daerah : ${loc} \n  ├❑ Ashar : ${anu.Ashar} \n  ├❑ Dhuha : ${anu.Dhuha} \n  ├❑ Dzuhur : ${anu.Dzuhur} \n  ├❑ Imsyak : ${anu.Imsyak} \n  ├❑ Isya : ${anu.Isya} \n  ├❑ Maghrib : ${anu.Maghrib} \n  └❑ Subuh : ${anu.Subuh}`
@@ -2040,24 +2059,24 @@ async function starts() {
                                         var gh = body.slice(10)
                                         var teks1 = gh.split("|")[0];
                                         if (args.length < 1) return reply('teksnya mana um\nContoh: ${prefix}jokerlogo NazwaCanss')
-                                        if (!isRegister) return reply(botLangs.daftarB(prefix))
+                                        if (!isRegister) return reply(mess.only.daftarB)
                                         if (isLimit(sender)) return reply(botLangs.limitend(pusname))
-                                        reply(botLangs.wait())
+                                        reply(mess.wait)
                                         anu = await fetchJson(`https://tobz-api.herokuapp.com/api/textpro?theme=jokerlogo&text=${teks1}&apikey=BotWeA`, {method: 'get'})
                                         buffer = await getBuffer(anu.result)
                                         nzwa.sendMessage(from, buffer, image, {quoted: mek, caption: 'Nih kak logonya...'})
                                         await limitAdd(sender)
                                         break
                                 /*case 'jadwaltvnow':  
-				if (!isRegister) return reply(botLangs.daftarB(prefix))
-                               reply(botLangs.wait())
+				if (!isRegister) return reply(mess.only.daftarB)
+                               reply(mess.wait)
 		               anu = await fetchJson(`http://api-melodicxt.herokuapp.com/api/jadwaltvnow?&apiKey=administrator`, {method: 'get'})
 			       reply(anu.result.jadwalTV)
 					break*/
                                 case 'afk':
                                         tels = body.slice(4)
                                         if (args.length < 1) return reply('kakak afk karena apa?')
-                                        if (!isRegister) return reply(botLangs.daftarB(prefix))
+                                        if (!isRegister) return reply(mess.only.daftarB)
                                         var nom = mek.participant
                                         const tag = {
                                                 text: `@${nom.split("@s.whatsapp.net")[0]} *SEDANG AFK ${tels} JANGAN GANGGU YA*`,
@@ -2069,9 +2088,9 @@ async function starts() {
                                         var gh = body.slice(7)
                                         var teks1 = gh.split("|")[0];
                                         if (args.length < 1) return reply('teksnya mana um\nContoh: ${prefix}shadow NazwaCanss')
-                                        if (!isRegister) return reply(botLangs.daftarB(prefix))
+                                        if (!isRegister) return reply(mess.only.daftarB)
                                         if (isLimit(sender)) return reply(botLangs.limitend(pusname))
-                                        reply(botLangs.wait())
+                                        reply(mess.wait)
                                         anu = await fetchJson(`https://tobz-api.herokuapp.com/api/photooxy?theme=shadow&text=${text1}&apikey=BotWeA`, {method: 'get'})
                                         buffer = await getBuffer(anu.result)
                                         nzwa.sendMessage(from, buffer, image, {quoted: mek, caption: 'Nih kak gambarnya...'})
@@ -2081,9 +2100,9 @@ async function starts() {
                                         var gh = body.slice(10)
                                         var teks1 = gh.split("|")[0];
                                         if (args.length < 1) return reply('teksnya mana um\nContoh: ${prefix}burnpaper NazwaCanss')
-                                        if (!isRegister) return reply(botLangs.daftarB(prefix))
+                                        if (!isRegister) return reply(mess.only.daftarB)
                                         if (isLimit(sender)) return reply(botLangs.limitend(pusname))
-                                        reply(botLangs.wait())
+                                        reply(mess.wait)
                                         anu = await fetchJson(`https://tobz-api.herokuapp.com/api/photooxy?theme=burn_paper&text=${teks1}&apikey=BotWeA`, {method: 'get'})
                                         buffer = await getBuffer(anu.result)
                                         nzwa.sendMessage(from, buffer, image, {quoted: mek, caption: 'Nih kak gambarnya...'})
@@ -2093,9 +2112,9 @@ async function starts() {
                                         var gh = body.slice(7)
                                         var teks1 = gh.split("|")[0];
                                         if (args.length < 1) return reply('teksnya mana um\nContoh: ${prefix}coffee NazwaCanss')
-                                        if (!isRegister) return reply(botLangs.daftarB(prefix))
+                                        if (!isRegister) return reply(mess.only.daftarB)
                                         if (isLimit(sender)) return reply(botLangs.limitend(pusname))
-                                        reply(botLangs.wait())
+                                        reply(mess.wait)
                                         anu = await fetchJson(`https://tobz-api.herokuapp.com/api/photooxy?theme=coffee&text=${teks1}&apikey=BotWeA`, {method: 'get'})
                                         buffer = await getBuffer(anu.result)
                                         nzwa.sendMessage(from, buffer, image, {quoted: mek, caption: 'Nih gambarnya kak...'})
@@ -2105,9 +2124,9 @@ async function starts() {
                                         var gh = body.slice(10)
                                         var teks1 = gh.split("|")[0];
                                         if (args.length < 1) return reply('teksnya mana um\nContoh: ${prefix}lovepaper NazwaCanss')
-                                        if (!isRegister) return reply(botLangs.daftarB(prefix))
+                                        if (!isRegister) return reply(mess.only.daftarB)
                                         if (isLimit(sender)) return reply(botLangs.limitend(pusname))
-                                        reply(botLangs.wait())
+                                        reply(mess.wait)
                                         anu = await fetchJson(`https://tobz-api.herokuapp.com/api/photooxy?theme=love_paper&text=${teks1}&apikey=BotWeA`, {method: 'get'})
                                         buffer = await getBuffer(anu.result)
                                         nzwa.sendMessage(from, buffer, image, {quoted: mek, caption: 'Nih gambarnya kak...'})
@@ -2117,9 +2136,9 @@ async function starts() {
                                         var gh = body.slice(10)
                                         var teks1 = gh.split("|")[0];
                                         if (args.length < 1) return reply('teksnya mana um\nContoh: ${prefix}woodblock NazwaCanss')
-                                        if (!isRegister) return reply(botLangs.daftarB(prefix))
+                                        if (!isRegister) return reply(mess.only.daftarB)
                                         if (isLimit(sender)) return reply(botLangs.limitend(pusname))
-                                        reply(botLangs.wait())
+                                        reply(mess.wait)
                                         anu = await fetchJson(`https://tobz-api.herokuapp.com/api/photooxy?theme=wood_block&text=${teks1}&apikey=BotWeA`, {method: 'get'})
                                         buffer = await getBuffer(anu.result)
                                         nzwa.sendMessage(from, buffer, image, {quoted: mek, caption: 'Nih gambarnya kak...'})
@@ -2129,9 +2148,9 @@ async function starts() {
                                         var gh = body.slice(9)
                                         var teks1 = gh.split("|")[0];
                                         if (args.length < 1) return reply('teksnya mana um\nContoh: ${prefix}qowheart NazwaCanss')
-                                        if (!isRegister) return reply(botLangs.daftarB(prefix))
+                                        if (!isRegister) return reply(mess.only.daftarB)
                                         if (isLimit(sender)) return reply(botLangs.limitend(pusname))
-                                        reply(botLangs.wait())
+                                        reply(mess.wait)
                                         anu = await fetchJson(`https://tobz-api.herokuapp.com/api/photooxy?theme=quote_on_wood_heart&text=${teks1}&apikey=BotWeA`, {method: 'get'})
                                         buffer = await getBuffer(anu.result)
                                         nzwa.sendMessage(from, buffer, image, {quoted: mek, caption: 'Nih gambarnya kak...'})
@@ -2141,9 +2160,9 @@ async function starts() {
                                         var gh = body.slice(9)
                                         var teks1 = gh.split("|")[0];
                                         if (args.length < 1) return reply('teksnya mana um\nContoh: ${prefix}mutgrass NazwaCanss')
-                                        if (!isRegister) return reply(botLangs.daftarB(prefix))
+                                        if (!isRegister) return reply(mess.only.daftarB)
                                         if (isLimit(sender)) return reply(botLangs.limitend(pusname))
-                                        reply(botLangs.wait())
+                                        reply(mess.wait)
                                         anu = await fetchJson(`https://tobz-api.herokuapp.com/api/photooxy?theme=message_under_the_grass&text=${teks1}&apikey=BotWeA`, {method: 'get'})
                                         buffer = await getBuffer(anu.result)
                                         nzwa.sendMessage(from, buffer, image, {quoted: mek, caption: 'Nih gambarnya kak...'})
@@ -2153,9 +2172,9 @@ async function starts() {
                                         var gh = body.slice(12)
                                         var teks1 = gh.split("|")[0];
                                         if (args.length < 1) return reply('teksnya mana um\nContoh: ${prefix}undergocean NazwaCanss')
-                                        if (!isRegister) return reply(botLangs.daftarB(prefix))
+                                        if (!isRegister) return reply(mess.only.daftarB)
                                         if (isLimit(sender)) return reply(botLangs.limitend(pusname))
-                                        reply(botLangs.wait())
+                                        reply(mess.wait)
                                         anu = await fetchJson(`https://tobz-api.herokuapp.com/api/photooxy?theme=underwater_ocean&text=${teks1}&apikey=BotWeA`, {method: 'get'})
                                         buffer = await getBuffer(anu.result)
                                         nzwa.sendMessage(from, buffer, image, {quoted: mek, caption: 'Nih gambarnya kak...'})
@@ -2165,9 +2184,9 @@ async function starts() {
                                         var gh = body.slice(13)
                                         var teks1 = gh.split("|")[0];
                                         if (args.length < 1) return reply('teksnya mana um\nContoh: ${prefix}woodenboards NazwaCanss')
-                                        if (!isRegister) return reply(botLangs.daftarB(prefix))
+                                        if (!isRegister) return reply(mess.only.daftarB)
                                         if (isLimit(sender)) return reply(botLangs.limitend(pusname))
-                                        reply(botLangs.wait())
+                                        reply(mess.wait)
                                         anu = await fetchJson(`https://tobz-api.herokuapp.com/api/photooxy?theme=wooden_boards&text=${teks1}&apikey=BotWeA`, {method: 'get'})
                                         buffer = await getBuffer(anu.result)
                                         nzwa.sendMessage(from, buffer, image, {quoted: mek, caption: 'Nih gambarnya kak...'})
@@ -2177,9 +2196,9 @@ async function starts() {
                                         var gh = body.slice(10)
                                         var teks1 = gh.split("|")[0];
                                         if (args.length < 1) return reply('teksnya mana um\nContoh: ${prefix}wolfmetal NazwaCanss')
-                                        if (!isRegister) return reply(botLangs.daftarB(prefix))
+                                        if (!isRegister) return reply(mess.only.daftarB)
                                         if (isLimit(sender)) return reply(botLangs.limitend(pusname))
-                                        reply(botLangs.wait())
+                                        reply(mess.wait)
                                         anu = await fetchJson(`https://tobz-api.herokuapp.com/api/photooxy?theme=wolf_metal&text=${teks1}&apikey=BotWeA`, {method: 'get'})
                                         buffer = await getBuffer(anu.result)
                                         nzwa.sendMessage(from, buffer, image, {quoted: mek, caption: 'Nih gambarnya kak...'})
@@ -2189,9 +2208,9 @@ async function starts() {
                                         var gh = body.slice(14)
                                         var teks1 = gh.split("|")[0];
                                         if (args.length < 1) return reply('teksnya mana um\nContoh: ${prefix}metalictglow NazwaCanss')
-                                        if (!isRegister) return reply(botLangs.daftarB(prefix))
+                                        if (!isRegister) return reply(mess.only.daftarB)
                                         if (isLimit(sender)) return reply(botLangs.limitend(pusname))
-                                        reply(botLangs.wait())
+                                        reply(mess.wait)
                                         anu = await fetchJson(`https://tobz-api.herokuapp.com/api/photooxy?theme=metalic_text_glow&text=${teks1}&apikey=BotWeA`, {method: 'get'})
                                         buffer = await getBuffer(anu.result)
                                         nzwa.sendMessage(from, buffer, image, {quoted: mek, caption: 'Nih gambarnya kak...'})
@@ -2202,9 +2221,9 @@ async function starts() {
                                         var teks1 = gh.split("|")[0];
                                         var teks2 = gh.split("|")[1];
                                         if (args.length < 1) return reply('teksnya mana um\nContoh: ${prefix}8bit Nazwa|Canss')
-                                        if (!isRegister) return reply(botLangs.daftarB(prefix))
+                                        if (!isRegister) return reply(mess.only.daftarB)
                                         if (isLimit(sender)) return reply(botLangs.limitend(pusname))
-                                        reply(botLangs.wait())
+                                        reply(mess.wait)
                                         anu = await fetchJson(`https://tobz-api.herokuapp.com/api/photooxy?theme=bit8&text1=${teks1}&text2=${teks2}&apikey=BotWeA`, {method: 'get'})
                                         buffer = await getBuffer(anu.result)
                                         nzwa.sendMessage(from, buffer, image, {quoted: mek, caption: 'Nih gambarnya kak...'})
@@ -2212,9 +2231,9 @@ async function starts() {
                                         break
                                 case 'randomkpop':
                                         gatauda = body.slice(6)
-                                        if (!isRegister) return reply(botLangs.daftarB(prefix))
+                                        if (!isRegister) return reply(mess.only.daftarB)
                                         if (isLimit(sender)) return reply(botLangs.limitend(pusname))
-                                        reply(botLangs.wait())
+                                        reply(mess.wait)
                                         anu = await fetchJson(`https://tobz-api.herokuapp.com/api/randomkpop?apikey=BotWeA`, {method: 'get'})
                                         buffer = await getBuffer(anu.result)
                                         nzwa.sendMessage(from, buffer, image, {quoted: mek, caption: 'Nih kpopnya kak...'})
@@ -2222,7 +2241,7 @@ async function starts() {
                                         break
                                 case 'fml2':
                                         getauda = body.slice(6)
-                                        if (!isRegister) return reply(botLangs.daftarB(prefix))
+                                        if (!isRegister) return reply(mess.only.daftarB)
                                         if (isLimit(sender)) return reply(botLangs.limitend(pusname))
                                         data = await fetchJson(`https://tobz-api.herokuapp.com/randomfmylife?apikey=BotWeA`, {method: 'get'})
                                         hasil = `*Fuck My Life*\n${data.result}`
@@ -2231,10 +2250,10 @@ async function starts() {
                                         break
                                 case 'tiktok':
 					if (args.length < 1) return reply('Urlnya mana um?')
-                                        if (!isRegister) return reply(botLangs.daftarB(prefix))
+                                        if (!isRegister) return reply(mess.only.daftarB)
                                         if (isLimit(sender)) return reply(botLangs.limitend(pusname))
-					if (!isUrl(args[0]) && !args[0].includes('tiktok.com')) return reply(botLangs.Iv())
-					reply(botLangs.wait())
+					if (!isUrl(args[0]) && !args[0].includes('tiktok.com')) return reply(mess.error.Iv)
+					reply(mess.wait)
 					anu = await fetchJson(`https://mhankbarbar.tech/api/tiktok?url=${args[0]}&apiKey=${BarBarKey}`, {method: 'get'})
 					if (anu.error) return reply(anu.error)
 					buffer = await getBuffer(anu.result)
@@ -2243,7 +2262,7 @@ async function starts() {
 					break
 				case 'ttp':
 					if (args.length < 1) return reply('Textnya mana um?')
-                                        if (!isRegister) return reply(botLangs.daftarB(prefix))
+                                        if (!isRegister) return reply(mess.only.daftarB)
                                         if (isLimit(sender)) return reply(botLangs.limitend(pusname))
 					ranp = getRandom('.png')
 					rano = getRandom('.webp')
@@ -2252,7 +2271,7 @@ async function starts() {
 					if (anu.error) return reply(anu.error)
 					exec(`wget ${anu.result} -O ${ranp} && ffmpeg -i ${ranp} -vcodec libwebp -filter:v fps=fps=20 -lossless 1 -loop 0 -preset default -an -vsync 0 -s 512:512 ${rano}`, (err) => {
 						fs.unlinkSync(ranp)
-						if (err) return reply(botLangs.stick())
+						if (err) return reply(mess.error.stick)
 						nzwa.sendMessage(from, fs.readFileSync(rano), sticker, {quoted: mek})
 						fs.unlinkSync(rano)
 					})
@@ -2275,8 +2294,8 @@ async function starts() {
 					reply(anu)
 					break
 				case 'simih':
-					if (!isGroup) return reply(langss.group())
-					if (!isGroupAdmins) return reply(botLangs.admin())
+					if (!isGroup) return reply(mess.only.group)
+					if (!isGroupAdmins) return reply(mess.only.admin)
 					if (args.length < 1) return reply('ketik 1 untuk mengaktifkan fitur')
 					if (Number(args[0]) === 1) {
 						if (isSimi) return reply('Mode simi sudah aktif')
@@ -2292,7 +2311,7 @@ async function starts() {
 					}
 					break
 				case 'clone':
-					if (!isGroup) return reply(langss.group())
+					if (!isGroup) return reply(mess.only.group)
 					if (!isOwner) return reply(botLangs.ownerB())
 					if (args.length < 1) return reply('Tag target yang ingin di clone')
 					if (mek.message.extendedTextMessage === undefined || mek.message.extendedTextMessage === null) return reply('Tag cvk')
@@ -2312,7 +2331,7 @@ async function starts() {
                                         var teks1 = gh.split("|")[0];
                                         var teks2 = gh.split("|")[1];
                                         if (args.length < 1) return reply('teksnya mana um\nContoh: ${prefix}pubglogo Nazwa|Canss')
-                                        if (!isRegister) return reply(botLangs.daftarB(prefix))
+                                        if (!isRegister) return reply(mess.only.daftarB)
                                         if (isLimit(sender)) return reply(botLangs.limitend(pusname))
                                         anu = await fetchJson(`https://tobz-api.herokuapp.com/api/photooxy?theme=pubg&text1=${teks1}&text2=${teks2}&apikey=BotWeA`, {method: 'get'})
                                         buffer = await getBuffer(anu.result)
@@ -2323,7 +2342,7 @@ async function starts() {
                                 case 'harrypotter':
                                         var gh = body.slice(12)
                                         if (args.length < 1) return reply('teksnya mana um\nContoh: ${prefix}harrypotter NazwaCanss')
-                                        if (!isRegister) return reply(botLangs.daftarB(prefix))
+                                        if (!isRegister) return reply(mess.only.daftarB)
                                         if (isLimit(sender)) return reply(botLangs.limitend(pusname))
                                         anu = await fetchJson(`https://tobz-api.herokuapp.com/api/photooxy?theme=harry_potter&text=${gh}&apikey=BotWeA`, {method: 'get'})
                                         buffer = await getBuffer(anu.result)
@@ -2331,14 +2350,14 @@ async function starts() {
                                         await limitAdd(sender)
                                         break
                                 case 'katabijak':
-                                        if (!isRegister) return reply(botLangs.daftarB(prefix))
+                                        if (!isRegister) return reply(mess.only.daftarB)
                                         if (isLimit(sender)) return reply(botLangs.limitend(pusname))
                                         anu = await fetchJson(`https://arugaz.my.id/api/random/text/katabijak`, {method: 'get'})
                                         reply(anu.result)
                                         await limitAdd(sender)
                                         break
                                 case 'faktaunik':
-                                        if (!isRegister) return reply(botLangs.daftarB(prefix))
+                                        if (!isRegister) return reply(mess.only.daftarB)
                                         if (isLimit(sender)) return reply(botLangs.limitend(pusname))
                                         anu = await fetchJson(`https://arugaz.my.id/api/random/text/faktaunik`, {method: 'get'})
                                         reply(anu.result)
@@ -2347,20 +2366,20 @@ async function starts() {
                                 case 'fancytext':
                                         var teks1 = body.slice(10)
                                         if (args.length < 1) return reply(`teksnya mana um...\nContoh:\n${prefix}fancytext NazwaCanss`)
-                                        if (!isRegister) return reply(botLangs.daftarB(prefix))
+                                        if (!isRegister) return reply(mess.only.daftarB)
                                         if (isLimit(sender)) return reply(botLangs.limitend(pusname))
                                         anu = await fetchJson(`https://arugaz.my.id/api/random/text/fancytext?text=${teks1}`, {method: 'get'})
                                         reply(anu.result)
                                         await limitAdd(sender)
                                         break
                                 case 'bal':
-                                        if (!isRegister) return reply(botLangs.daftarB(prefix))
+                                        if (!isRegister) return reply(mess.only.daftarB)
                                         const kantong = checkATMuser(sender)
                                         reply(botLangs.uangkau(pushname, sender, kantong))
                                         break
                                 case 'buylimit':
                                         if (args.length < 1) return reply('Berapa limit yang mau di beli kak? Pastiin uang kakak cukup juga kak! \n\nCara cek uang: ${prefix}bal')
-                                        if (!isRegister) return reply(botLangs.daftarB(prefix))
+                                        if (!isRegister) return reply(mess.only.daftarB)
                                         payout = body.slice(10)
                                         const koinPerlimit = 1000
                                         const total = koinPerlimit * payout
@@ -2372,11 +2391,11 @@ async function starts() {
                                         }
                                         break
                                 case 'limit':
-                                        if (!isRegister) return reply(botLangs.daftarB(prefix))
+                                        if (!isRegister) return reply(mess.only.daftarB)
                                         checkLimit(sender)
                                         break
                                 case 'event':
-                                        if (!isGroup) return reply(langss.group())
+                                        if (!isGroup) return reply(mess.only.group)
                                         if (!isOwner) return reply(botLangs.ownerB())
                                         if (args.length < 1) return reply('ketik 1 untuk mengaktifkan')
                                         if (Number(args[0]) === 1) {
@@ -2414,7 +2433,7 @@ async function starts() {
                                         }
                                         break
                                 case 'mining':
-                                        if (!isRegister) return reply(botLangs.daftarB(prefix))
+                                        if (!isRegister) return reply(mess.only.daftarB)
                                         if (isLimit(sender)) return reply(botLangs.limitend(pushname))
                                         if (!isEventon) return reply(`maaf ${pushname} event mining tidak di aktifkan oleh owner`)
                                         if (isOwner) {
@@ -2431,15 +2450,15 @@ async function starts() {
                                         break
                                  /*case 'setname':
                                         if (!isGroup) return reply(botLangs.groupo())
-			                if (!isGroupAdmins) return reply(botLangs.admin())
-			                if (!isBotGroupAdmins) return reply(botLangs.badmin())
+			                if (!isGroupAdmins) return reply(mess.only.admin)
+			                if (!isBotGroupAdmins) return reply(mess.only.Badmin)
                                         nzwa.groupUpdateSubject(from, `${body.slice(9)}`)
                                         nzwa.sendMessage(from, 'Succes, Ganti Nama Grup', text, {quoted: mek})
 				        break
                                 case 'setdesc':
                                         if (!isGroup) return reply(botLangs.groupo())
-			                if (!isGroupAdmins) return reply(botLangs.admin())
-			         	if (!isBotGroupAdmins) return reply(botLangs.badmin())
+			                if (!isGroupAdmins) return reply(mess.only.admin)
+			         	if (!isBotGroupAdmins) return reply(mess.only.Badmin)
                                         nzwa.groupUpdateDescription(from, `${body.slice(9)}`)
                                         nzwa.sendMessage(from, 'Succes, Ganti Deskripsi Grup', text, {quoted: mek})
 					break*/
@@ -2447,7 +2466,7 @@ async function starts() {
                                         aruga = body.slice(10)
                                         lang = aruga.split("|")[0];
                                         teksnya = aruga.split("|")[1];
-                                        if (!isRegister) return reply(botLangs.daftarB(prefix))
+                                        if (!isRegister) return reply(mess.only.daftarB)
                                         if (args.length < 1) return reply(`kode bahasanya mana kak?\nContoh: ${prefix}translate en|Hai, aku Nazwa`)
                                         if (args.length < 2) return reply(`teksnya mana kak?\nContoh: ${prefix}translate en| Hai, aku Nazwa`)
                                         if (isLimit(sender)) return reply(botLangs.limitend(pusname))
@@ -2458,7 +2477,7 @@ async function starts() {
                                         break
                                 case 'tafsirmimpi':
                                         aruga = body.slice(12)
-                                        if (!isRegister) return reply(botLangs.daftarB(prefix))
+                                        if (!isRegister) return reply(mess.only.daftarB)
                                         if (args.length < 1) return reply(`mimpi apa kak?\nContoh: ${prefix}tafsirmimpi belanja`)
                                         if (isLimit(sender)) return reply(botLangs.limitend(pusname))
                                         anu = await fetchJson(`https://arugaz.my.id/api/primbon/tafsirmimpi?mimpi=${aruga}`, {method: 'get'})
@@ -2466,7 +2485,7 @@ async function starts() {
                                         await limitAdd(sender)
                                         break
                                 case 'tagme':
-                                        if (!isRegister) return reply(botLangs.daftarB(prefix))
+                                        if (!isRegister) return reply(mess.only.daftarB)
                                         var nom = mek.participant
                                         const tagme = {
                                                 text: `@${nom.split("@s.whatsapp.net")[0]} Tuh dah ku tag!`,
@@ -2476,7 +2495,7 @@ async function starts() {
                                         break
                                 case 'ip': // masih testing
                                         ipnya = body.slice(3)
-                                        if (!isRegister) return reply(botLangs.daftarB(prefix))
+                                        if (!isRegister) return reply(mess.only.daftarB)
                                         if (args.length < 1) return reply(`ip nya mana kak? \nContoh: ${prefix}ip 8.8.8.8`)
                                         if (isLimit(sender)) return reply(botLangs.limitend(pusname))
                                         anu = await fetchJson(`https://mnazria.herokuapp.com/api/check?ip=${ipnya}`, {method: 'get'})
@@ -2487,7 +2506,7 @@ async function starts() {
                                         break
                                 case 'happymod':
                                         toby = body.slice(10)
-                                        if (!isRegister) return reply(botLangs.daftarB(prefix))
+                                        if (!isRegister) return reply(mess.only.daftarB)
                                         if (args.length < 1) return reply(`game yang mau di cari apa kak? \nContoh : ${prefix}happymod pubg`)
                                         if (isLimit(sender)) return reply(botLangs.limitend(pusname))
                                         anu = await fetchJson(`https://tobz-api.herokuapp.com/api/happymod?q=${toby}&apikey=BotWeA`, {method: 'get'})
@@ -2499,7 +2518,7 @@ async function starts() {
                                         break
                                 case 'jadwalTV':
                                         mb = body.slice(10)
-                                        if (!isRegister) return reply(botLangs.daftarB(prefix))
+                                        if (!isRegister) return reply(mess.only.daftarB)
                                         if (args.length < 1) return reply(`Channel TV nya apa kak? \nContoh: ${prefix}jadwalTV mnctv`)
                                         if (isLimit(sender)) return reply(botLangs.limitend(pusname))
                                         anu = await fetchJson(`https://mhankbarbar.tech/api/jdtv?ch=${mb}&apiKey=${BarBarKey}`, {method: 'get'})
@@ -2509,15 +2528,15 @@ async function starts() {
                                         break
                                 case 'say':
                                         teks = body.slice(5)
-                                        if (!isRegister) return reply(botLangs.daftarB(prefix))
+                                        if (!isRegister) return reply(mess.only.daftarB)
                                         if (args.length < 1) return reply('teksnya mana kak?')
                                         saying = teks
                                         nzwa.sendMessage(from, saying, text)
                                         break
                                 case 'antilinkgroup':
-                                	if (!isGroup) return reply(langss.group())
-					if (!isGroupAdmins) return reply(botLangs.admin())
-					if (!isBotGroupAdmins) return reply(botLangs.Badmin())
+                                	if (!isGroup) return reply(mess.only.group)
+					if (!isGroupAdmins) return reply(mess.only.admin)
+					if (!isBotGroupAdmins) return reply(mess.only.Badmin)
 					if (args.length < 1) return reply('ketik 1 untuk mengaktifkan')
 					if (Number(args[0]) === 1) {
 						if (isAntiLink) return reply('anti link group sudah aktif')
@@ -2537,8 +2556,8 @@ async function starts() {
 					break
 			        case 'wait':
 					if ((isMedia && !mek.message.videoMessage || isQuotedImage) && args.length == 0) {
-                                        if (!isRegister) return reply(botLangs.daftarB(prefix))
-						reply(botLangs.wait())
+                                        if (!isRegister) return reply(mess.only.daftarB)
+						reply(mess.wait)
 						const encmedia = isQuotedImage ? JSON.parse(JSON.stringify(mek).replace('quotedM','m')).message.extendedTextMessage.contextInfo : mek
 						media = await nzwa.downloadMediaMessage(encmedia)
 						await wait(media).then(res => {
