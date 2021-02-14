@@ -2402,11 +2402,11 @@ async function starts() {
                                                 if (isEventon) return reply('*SUDAH AKTIF* !!!')
                                                 event.push(from)
                                                 fs.writeFileSync('./database/json/event.json', JSON.stringify(event))
-                                                reply('*â¬ SUCCSESS â­ Mengaktifkan EVENT di group ini*')
+                                                reply('*「 SUCCSESS 」 Mengaktifkan EVENT di group ini*')
                                         } else if (Number(args[0]) === 0) {
                                                 event.splice(from, 1)
                                                 fs.writeFileSync('./database/json/event.json', JSON.stringify(event))
-                                                reply('*â¬ SUCCSESS â­ Menonaktifkan EVENT di group ini*')
+                                                reply('*「 SUCCSESS 」 Menonaktifkan EVENT di group ini*')
                                         } else {
                                                 reply(ind.satukos())
                                         }
@@ -2558,6 +2558,27 @@ async function starts() {
 						reply('1 untuk mengaktifkan, 0 untuk menonaktifkan')
 					}
 					break
+                                case 'leaderboard':
+				case 'lb':
+				        bo = args[0]
+				        _level.sort((a, b) => (a.xp < b.xp) ? 1 : -1)
+			         	uang.sort((a, b) => (a.uang < b.uang) ? 1 : -1)
+                                        let leaderboardlvl = '「 *LEADERBOARD LEVEL* 」\n\n'
+                                        let leaderboarduang = '「 *LEADERBOARD BALANCE* 」\n\n'
+                                        nom = 0
+                                        try {
+                                                for (let i = 0; i < 10; i++) {
+                                                        nom++
+                                                        leaderboardlvl += `◪ *「${nom}」*\n  ├❑ wa.me/${_level[i].jid.replace('@s.whatsapp.net', '')}\n  ├❑ *XP*: ${_level[i].xp}\n  └❑ *Level*: ${_level[i].level}\n`
+                                                        leaderboarduang += `◪ *「${nom}」*\n\n  ├❑ *Number* : wa.me/${uang[i].id.replace('@s.whatsapp.net', '')}\n  ├❑ *Balance*: _Rp${uang[i].uang}_\n  └❑ *Limit*: ${limitawal - _limit[i].limit}\n`
+                                                }
+                                                await reply(leaderboardlvl)
+                                                await reply(leaderboarduang)
+                                        } catch (err) {
+                                                console.error(err)
+                                                await reply(`minimal ${len} user untuk bisa mengakses database`)
+                                        }
+				        break
 			        case 'wait':
 					if ((isMedia && !mek.message.videoMessage || isQuotedImage) && args.length == 0) {
                                         if (!isRegister) return reply(mess.only.daftarB)
