@@ -2412,11 +2412,15 @@ async function starts() {
                                         }
                                         break
                                 case 'register':
-                                        if (isRegister) return  reply(`「 SUDAH REGISTER 」 \n\nKakak dah register kak...`)
+                                        if (isRegistered) return  reply(ind.rediregis())
                                         if (!q.includes('|')) return  reply(ind.wrongf())
                                         const namaUser = q.substring(0, q.indexOf('|') - 0)
-                                        const umurUser = q.substring(q.lastindexOf('|') + 1)
+                                        const umurUser = q.substring(q.lastIndexOf('|') + 1)
                                         const serialUser = createSerial(20)
+                                        if(isNaN(umurUser)) return await reply('Umur harus berupa angka!!')
+                                        if (namaUser.length >= 30) return reply(`why is your name so long it's a name or a train`)
+                                        if (umurUser > 40) return reply(`your age is too  old maximum 40 years`)
+                                        if (umurUser < 12) return reply(`your age is too young minimum 12 years`)
                                         veri = sender
                                         if (isGroup) {
                                                 addRegisteredUser(sender, namaUser, umurUser, time, serialUser)
@@ -2431,7 +2435,7 @@ async function starts() {
                                                 addLevelingId(sender)
                                                 console.log(color('[REGISTER]'), color(time, 'yellow'), 'Name:', color(namaUser, 'cyan'), 'Age:', color(umurUser, 'cyan'), 'Serial:', color(serialUser, 'cyan'))
                                         }
-                                        break
+				        break
                                 case 'mining':
                                         if (!isRegister) return reply(mess.only.daftarB)
                                         if (isLimit(sender)) return reply(ind.limitend(pushname))
