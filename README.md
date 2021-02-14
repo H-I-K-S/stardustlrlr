@@ -397,3 +397,4 @@ Follow The Steps Below!
 * <a href="https://github.com/Nurutomo"><img alt="GitHub" src="https://img.shields.io/badge/Nurutomo%20-%23121011.svg?&style=for-the-badge&logo=github&logoColor=white"></a>
 * <a href="https://github.com/TobyG74"><img alt="GitHub" src="https://img.shields.io/badge/TobyG74%20-%23121011.svg?&style=for-the-badge&logo=github&logoColor=white"></a>
 * <a href="https://github.com/ArugaZ"><img alt="GitHub" src="https://img.shields.io/badge/ArugaZ%20-%23121011.svg?&style=for-the-badge&logo=github&logoColor=white"></a>
+* <a href="https://github.com/affisjunianto"><img alt="GitHub" src="https://img.shields.io/badge/affisjunianto%20-%23121011.svg?&style=for-the-badge&logo=github&logoColor=white"></a>
