@@ -2412,7 +2412,7 @@ async function starts() {
                                         }
                                         break
                                 case 'register':
-                                        if (isRegistered) return  reply(ind.rediregis())
+                                        if (isRegister) return  reply(ind.rediregis())
                                         if (!q.includes('|')) return  reply(ind.wrongf())
                                         const namaUser = q.substring(0, q.indexOf('|') - 0)
                                         const umurUser = q.substring(q.lastIndexOf('|') + 1)
