@@ -758,16 +758,16 @@ async function starts() {
 					break
 				  case 'wa.me':
 				  case 'wame':
-  nzwa.updatePresence(from, Presence.composing) 
-      options = {
-          text: `「 *SELF WHATSAPP* 」\n\n_Request by_ : *@${sender.split("@s.whatsapp.net")[0]}\n\nYour link WhatsApp : *wa.me/${sender.split("@s.whatsapp.net")[0]}*\n*Or ( / )*\n*api.whatsapp.com/send?phone=${sender.split("@")[0]}*`,
-          contextInfo: { mentionedJid: [sender] }
-    }
-    nzwa.sendMessage(from, options, text, { quoted: mek } )
-				break
-				if (data.error) return reply(data.error)
-				reply(data.result)
-				break
+                                          nzwa.updatePresence(from, Presence.composing)
+                                          try {
+                                                  ppimg = await nzwa.getProfilePicture(`${anu.participants[0].split('@')[0]}@c.us`)
+                                          } catch {
+                                                  ppimg = 'https://i0.wp.com/www.gambarunik.id/wp-content/uploads/2019/06/Top-Gambar-Foto-Profil-Kosong-Lucu-Tergokil-.jpg'
+				          }
+                                          teks = `「 *SELF WHATSAPP* 」\n\n_Request by_ : *@${sender.split("@s.whatsapp.net")[0]}\n\nYour link WhatsApp : *wa.me/${sender.split("@s.whatsapp.net")[0]}*\n*Or ( / )*\n*api.whatsapp.com/send?phone=${sender.split("@")[0]}*`,
+                                          console.log('Getting WhatsApp Profile Image...')
+                                          nzwa.sendMessage(from, ppimg, image, { quoted: mek, caption: teks, contextInfo: { "mentionedJid": [sender] } } )
+				          break
 			case 'quotes':
 				nzwa.updatePresence(from, Presence.composing) 
                                 if (!isRegister) return reply(mess.only.daftarB)
@@ -1352,15 +1352,16 @@ async function starts() {
 					reply(anu.result)
                                         await limitAdd(sender)
 					break
-			case 'igstalk':
-                      if (!isRegister) return reply(mess.only.daftarB)
-                      if (isLimit(sender)) return reply(ind.limitend(pusname))
-                      hmm = await fetchJson(`https://freerestapi.herokuapp.com/api/v1/igs?u=${body.slice(9)}`)
-                     buffer = await getBuffer(hmm.data.profilehd)
-                     hasil = `Fullname : ${hmm.data.fullname}\npengikut : ${hmm.data.follower}\nMengikuti : ${hmm.data.following}\nPrivate : ${hmm.data.private}\nVerified : ${hmm.data.verified}\nbio : ${hmm.data.bio}`
-                    nzwa.sendMessage(from, buffer, image, {quoted: mek, caption: hasil})
-                    await limitAdd(sender)
-                    break
+			        case 'igstalk':
+                                        if (!isRegister) return reply(mess.only.daftarB)
+                                        if (isLimit(sender)) return reply(ind.limitend(pusname))
+                                        vide = body.slice(9)
+                                        hmm = await fetchJson(`https://videfikri.com/api/igstalk/?username=${vide}`)
+                                        buffer = await getBuffer(hmm.result.profile_hd)
+                                        hasil = `Username : ${hmm.result.username}\nFull Name : ${hmm.result.full_name}\nFollowers : ${hmm.result.followers}\nFollowing : ${hmm.result.following}\nPrivate : ${hmm.result.is_private}\nVerified : ${hmm.result.is_verified}\nbio : ${hmm.result.bio}\nPost Count : ${hmm.result.post_count\nExternal Url : ${hmm.result.external_url}\nFbId : ${hmm.result.fbid}\nShow Suggested Profile : ${hmm.result.show_suggested_profile}`
+                                        nzwa.sendMessage(from, buffer, image, {quoted: mek, caption: hasil})
+                                        await limitAdd(sender)
+                                        break
                     case 'ownergrup':
 				  case 'ownergroup':
                nzwa.updatePresence(from, Presence.composing) 
