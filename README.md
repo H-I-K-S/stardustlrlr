@@ -10,7 +10,6 @@
 <p align="center">
     <a href="#"><img title="maintened" src="https://img.shields.io/badge/maintained%3F-yes-green.svg?style=flat"></a>
     <a href="#"><img title="repo size" src="https://img.shields.io/github/repo-size/H-I-K-S/stardustlrlr?style=flat-square"></a>
-    <a href="https://www.codefactor.io/repository/github/h-i-k-s/stardustlrlr"><img src="https://www.codefactor.io/repository/github/h-i-k-s/stardustlrlr/badge" alt="CodeFactor" /></a>
 </p>
 
 <div align="center">
