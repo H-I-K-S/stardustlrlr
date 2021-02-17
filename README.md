@@ -16,9 +16,9 @@
 <details>
  <summary>🐊 Help me!</summary>
  
- [Saweria](https://saweria.co/PUDlDl)
+ [Nyawer](https://saweria.co/PUDlDl)
 
- [Trakteer](https://bit.ly/ClickDiSinii)
+ [Vipul/Dana](https://bit.ly/ClickDiSinii)
  
 </details>
 </div>
