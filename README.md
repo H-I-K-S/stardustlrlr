@@ -8,13 +8,9 @@
 <a href="https://github.com/H-I-K-S"><img title="Repository" src="https://img.shields.io/badge/REPOSITORY-stardustlrlr-black?style=for-the-badge&logo=github"></a>
 </p>
 <p align="center">
-    <a href="https://github.com/NazwaS/followers"><img title="Followers" src="https://img.shields.io/github/followers/NazwaS?style=flat-square"></a>
-    <a href="https://github.com/NazwaS/termux-whatsapp-bot/stargazers"><img title="Stars" src="https://img.shields.io/github/stars/NazwaS/termux-whatsapp-bot?style=flat-square"></a>
-    <a href="https://github.com/NazwaS/termux-whatsapp-bot/network/members"><img title="Forks" src="https://img.shields.io/github/forks/NazwaS/termux-whatsapp-bot?style=flat-square"></a>
-    <a href="https://github.com/NazwaS/termux-whatsapp-bot/watchers"><img title="watchers" src="https://img.shields.io/github/watchers/NazwaS/termux-whatsapp-bot?style=flat-square"></a>
     <a href="#"><img title="maintened" src="https://img.shields.io/badge/maintained%3F-yes-green.svg?style=flat"></a>
-    <a href="#"><img title="repo size" src="https://img.shields.io/github/repo-size/NazwaS/termux-whatsapp-bot?style=flat-square"></a>
-    <a href="https://www.codefactor.io/repository/github/nazwas/termux-whatsapp-bot"><img src="https://www.codefactor.io/repository/github/nazwas/termux-whatsapp-bot/badge" alt="CodeFactor" /></a>
+    <a href="#"><img title="repo size" src="https://img.shields.io/github/repo-size/H-I-K-S/stardustlrlr?style=flat-square"></a>
+    <a href="https://www.codefactor.io/repository/github/h-i-k-s/stardustlrlr"><img src="https://www.codefactor.io/repository/github/h-i-k-s/stardustlrlr/badge" alt="CodeFactor" /></a>
 </p>
 
 <div align="center">
