@@ -17,9 +17,6 @@
     <a href="https://www.codefactor.io/repository/github/nazwas/termux-whatsapp-bot"><img src="https://www.codefactor.io/repository/github/nazwas/termux-whatsapp-bot/badge" alt="CodeFactor" /></a>
 </p>
 
-<p align="center">
-    <img src="https://media4.giphy.com/media/qLFKvOpoS1N7ts7xO8/giphy.gif">
-</p>
 <div align="center">
 <details>
  <summary>🍙 Help me!</summary>
